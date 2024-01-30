@@ -24,7 +24,7 @@ features:
   - sw\registry\configure-privacy.yml
   - sw\registry\configure-search-and-cortana.yml
   - sw\registry\configure-security.yml
-  - sw\registry\configure-start-menu-and-taskbar-notifications).yml
+  - sw\registry\configure-start-menu-and-taskbar-notifications.yml
   - sw\registry\configure-win32priorityseparation.yml
   - sw\registry\configure-windows-settings.yml
   - sw\registry\configure-windows-update-and-install.yml
