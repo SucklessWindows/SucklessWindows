@@ -1,7 +1,7 @@
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 
-robocopy "Wallpapers" "C:\Windows\Wallpapers" /E /IM /IT /NP
+move "Wallpapers" "C:\Windows\Wallpapers" /Y
 reg add "HKCU\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d "" /f 
 reg add "HKCU\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d "C:\Windows\Wallpapers\img.png" /f 
 reg add "HKCU\Control Panel\Desktop" /v WallpaperStyle /t REG_SZ /d 2 /f
