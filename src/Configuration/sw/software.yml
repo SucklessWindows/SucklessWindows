@@ -1,0 +1,92 @@
+---
+title: Software
+description: Installs preferred softwares 
+privilege: TrustedInstaller
+actions:
+
+  - !writeStatus: {status: 'Installing Chocolatey'}
+  - !powerShell:
+    command: 'Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(''https://community.chocolatey.org/install.ps1''))'
+    weight: 50
+
+  # - !writeStatus: {status: "Installing .NET Framework 3.5", option: "dotnet35"}
+  # - !cmd:
+  #   command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums dotnet3.5'
+  #   weight: 150
+  #   option: "dotnet35"
+
+# Browser
+  # Firefox
+  - !writeStatus: {status: 'Installing Firefox', option: "browser-firefox"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums firefox'
+    weight: 150
+    option: "browser-firefox"
+  - !writeStatus: {status: 'Configuring Firefox', option: "browser-firefox"}
+  - !run: {exe: 'firefox.cmd', exeDir: true, weight: 20, option: "browser-firefox"}
+
+  # Ungoogled Chromium
+  - !writeStatus: {status: 'Installing Ungoogled Chromium', option: "browser-ugc"}
+  - !cmd:
+     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums ungoogled-chromium'
+     weight: 150
+     option: "browser-ugc"
+
+  # Librewolf
+  - !writeStatus: {status: 'Installing LibreWolf', option: "browser-librewolf"}
+  - !cmd:
+     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums librewolf'
+     weight: 150
+     option: "browser-librewolf"
+
+# Media
+  # mpv
+  - !writeStatus: {status: 'Installing mpv', option: "media-mpv"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums mpv'
+    weight: 150
+    option: "media-mpv"
+
+  # VLC
+  - !writeStatus: {status: 'Installing VLC', option: "media-vlc"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums vlc'
+    weight: 150
+    option: "media-vlc"
+
+  # MPC-HC
+  - !writeStatus: {status: 'Installing Firefox', option: "media-mpc"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums mpc-hc'
+    weight: 150
+    option: "media-mpc"
+
+# Office
+  # LibreOffice
+  - !writeStatus: {status: 'Installing LibreOffice', option: "office-libreoffice"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums libreoffice-fresh'
+    weight: 150
+    option: "office-libreoffice"
+
+  # OnlyOffice
+  - !writeStatus: {status: 'Installing LibreOffice', option: "office-onlyoffice"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums onlyoffice'
+    weight: 150
+    option: "office-onlyoffice"
+
+# Utils
+  # 7zip
+  - !writeStatus: {status: 'Installing 7-zip', option: "utils-7zip"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums 7zip'
+    weight: 150
+    option: "utils-7zip"
+
+  # Notepad++
+  - !writeStatus: {status: 'Installing Notepad++', option: "utils-npp"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums notepadplusplus'
+    weight: 150
+    option: "utils-npp"

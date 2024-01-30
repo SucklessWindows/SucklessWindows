@@ -1,0 +1,13 @@
+---
+title: Custom
+description: Custom Suckless Windows configuration
+privilege: Admin
+actions: []
+features:
+  - sw\start.yml
+  - sw\software.yml
+  - sw\services.yml
+  - sw\components.yml
+  - sw\appx.yml
+  - sw\registry.yml
+  - sw\config.yml

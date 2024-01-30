@@ -1,0 +1,61 @@
+---
+title: Configuration
+description: Applies some configurations
+privilege: TrustedInstaller
+actions:
+
+  - !writeStatus: {status: "Removing logs"}
+  - !run:
+    exeDir: true
+    exe: "PowerShell"
+    args: '-NoP -ExecutionPolicy Bypass -File cleaner.ps1'
+    weight: 150
+
+  - !writeStatus: {status: "Finalizing process"}
+  - !registryValue: {path: 'HKCU\System\GameConfigStore', value: 'GameDVR_FSEBehaviorMode', type: REG_DWORD, data: '0', weight: 70}
+  - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications', value: 'GlobalUserDisabled', type: REG_DWORD, data: '1', weight: 60}
+
+   # OneDrive workaround
+  - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\OneDrive', value: 'DisableFileSyncNGSC', operation: delete}
+
+  - !run:
+    exeDir: true
+    exe: "PowerShell"
+    args: '-NoP -ExecutionPolicy Bypass -File svcgroup.ps1'
+    weight: 50
+
+  - !run: {exeDir: true, exe: "config.cmd", weight: 200}
+
+  - !run:
+    exeDir: true
+    exe: "fileassoc.cmd"
+    option: "configure-lpv"
+    weight: 150
+
+  - !run:
+    exeDir: true
+    exe: "theme.cmd"
+    option: "configure-theme"
+    weight: 90
+
+  - !writeStatus: {status: "Configuring features"}
+  - !run:
+    exeDir: true
+    exe: "PowerShell"
+    args: '-NoP -ExecutionPolicy Bypass -File dism-features.ps1'
+    weight: 270
+
+    # Necessary to refresh start menu entries etc.
+  - !appx: {operation: clearCache, name: '*Client.CBS*'}
+  - !appx: {operation: clearCache, name: '*StartMenuExperienceHost*'}
+  - !appx: {operation: clearCache, name: '*Windows.Search*'}
+  - !appx: {operation: clearCache, name: '*TCUI*'}
+    # Workaround for KGL versions to match
+  - !appx: {operation: clearCache, name: '*XboxGameCallableUI*'}
+  - !appx: {operation: clearCache, name: '*XboxGameOverlay*'}
+  - !appx: {operation: clearCache, name: '*XboxGamingOverlay*'}
+  - !appx: {operation: clearCache, name: '*XboxIdentityProvider*'}
+  - !appx: {operation: clearCache, name: '*XboxSpeechToTextOverlay*'}
+
+    # Start as user process to prevent weird look due to running as TrustedInstaller
+  # - !run: {baseDir: true, exe: "NSudoLC.exe", args: '-U:C -UseCurrentConsole explorer.exe'}

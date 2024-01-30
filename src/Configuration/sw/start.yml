@@ -1,0 +1,47 @@
+---
+title: Start
+description: Copies config folders/files, and configures some initial settings
+privilege: TrustedInstaller
+actions:
+  
+  - !taskKill: {name: "explorer", ignoreErrors: true}
+  - !taskKill: {name: "SearchApp", ignoreErrors: true}
+  - !taskKill: {name: "SearchHost", ignoreErrors: true}
+  - !taskKill: {name: "RuntimeBroker", ignoreErrors: true}
+  - !taskKill: {name: "TextInputHost", ignoreErrors: true}
+  - !taskKill: {name: "ShellExperienceHost", ignoreErrors: true}
+  - !taskKill: {name: "backgroundTaskHost", ignoreErrors: true}
+  - !taskKill: {name: "Widgets", ignoreErrors: true}
+  
+  
+  - !writeStatus: {status: "Initializing"}
+
+    # Prevent annoying notifications during deployment
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance'
+    value: 'Enabled'
+    type: REG_DWORD
+    data: '0'
+
+    # Disable driver blocklist to avoid "Program Compatibility" related errors 
+  - !registryValue:
+    path: 'HKLM\SYSTEM\ControlSet001\Control\CI\Config'
+    value: 'VulnerableDriverBlocklistEnable'
+    type: REG_DWORD
+    data: '0'
+    
+  - !cmd:
+    exeDir: true
+    command: 'copy /y "hosts" "%WINDIR%\System32\drivers\etc\hosts"'
+    weight: 20
+
+    # Necessary to clean DNS Cache after modifying hosts
+  - !cmd:
+    command: 'ipconfig /flushdns'
+
+  - !writeStatus: {status: "Optimizing PowerShell"}
+  - !run:
+    exeDir: true
+    exe: "PowerShell"
+    args: '-NoP -ExecutionPolicy Bypass -File ngen.ps1'
+    weight: 100

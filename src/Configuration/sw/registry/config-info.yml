@@ -1,0 +1,20 @@
+---
+title: Configure Information
+description: Configures information to contain the Suckless Windows version
+privilege: TrustedInstaller
+actions:
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'
+    value: 'Manufacturer'
+    data: 'Suckless Windows Team'
+    type: REG_SZ
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'
+    value: 'Model'
+    data: 'Suckless Windows'
+    type: REG_SZ
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'
+    value: 'SupportURL'
+    data: 'https://github.com/SucklessWindows'
+    type: REG_SZ
