@@ -21,6 +21,11 @@ Unlike most other Windows modifications, Suckless Windows doesn't remove any sec
 Suckless Windows applies some modifications to make Windows easier to use. This includes removing unneeded apps, configuring the interface, disabling ads, telemetry and so on.
 
 # 🔧 Installation
+## Recommend version
+- Windows 10 (1903 or higher)
+- Windows 11
+
+## Installation guide
 - Download [AME Wizard](https://ameliorated.io/) and [Suckless Windows Playbook](https://github.com/SucklessWindows/SucklessWindows/releases/latest)
 - Extract AME Wizard
 - Open `AME Wizard Beta.exe` from the AME Wizard folder
