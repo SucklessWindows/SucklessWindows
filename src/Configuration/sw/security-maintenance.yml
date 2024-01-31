@@ -1,0 +1,59 @@
+---
+title: Security and maintenance
+description: Toggles some security features
+privilege: TrustedInstaller
+actions:
+    # Pause Windows Update
+  - !registryValue
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+    value: 'PauseUpdatesExpiryTime'
+    type: REG_SZ
+    data: '2099-11-11T11:11:11Z'
+    option: "pause-update"
+
+  - !registryValue
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+    value: 'PauseFeatureUpdatesEndTime'
+    type: REG_SZ
+    data: '2099-11-11T11:11:11Z'
+    option: "pause-update"
+
+  - !registryValue
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+    value: 'PauseQualityUpdatesEndTime'
+    type: REG_SZ
+    data: '2099-11-11T11:11:11Z'
+    option: "pause-update"
+
+    # Unpause Windows Update
+  - !registryValue
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+    value: 'PauseUpdatesExpiryTime'
+    operation: 'delete'
+    option: "no-pause-update"
+
+  - !registryValue
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+    value: 'PauseFeatureUpdatesEndTime'
+    operation: 'delete'
+    option: "no-pause-update"
+
+  - !registryValue
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+    value: 'PauseQualityUpdatesEndTime'
+    operation: 'delete'
+    option: "no-pause-update"
+
+    # Disable/Enable Windows Defender
+  - !registryValue
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows Defender'
+    value: 'DisableAntiSpyware'
+    type: REG_DWORD
+    data: '1'
+    option: "disable-defender"
+
+  - !registryValue
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows Defender'
+    value: 'DisableAntiSpyware'
+    operation: 'delete'
+    option: "enable-defender"

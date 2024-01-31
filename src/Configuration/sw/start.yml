@@ -16,6 +16,10 @@ actions:
   
   - !writeStatus: {status: "Initializing"}
 
+    # Prevent computer from going to sleep during deployment
+  - !run: {exe: 'powercfg.exe', args: '/setacvalueindex scheme_current sub_sleep standbyidle 0'}
+  - !run: {exe: 'powercfg.exe', args: '/setdcvalueindex scheme_current sub_sleep standbyidle 0'}
+
     # Prevent annoying notifications during deployment
   - !registryValue:
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance'

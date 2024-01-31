@@ -8,7 +8,6 @@ actions:
   - !cmd:
     command: 'copy /y "Wallpapers" "%windir\Wallpapers" > nul'
     exeDir: true
-    wait: true
     option: "configure-theme"
 
     # Set background
@@ -50,7 +49,6 @@ actions:
   - !powerShell:
     command: '.\pfp.ps1'
     exeDir: true
-    wait: true
     runas: currentUserElevated
     option: "configure-theme"
 

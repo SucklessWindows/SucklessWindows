@@ -6,31 +6,11 @@ actions:
 
     # ======================
     # === Windows Update ===
-    # ======================
-
-    # === Configure Automatic Updates - Disabled
-    # === Used to break Xbox Sign-in
-  - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU', value: 'NoAutoUpdate', type: REG_DWORD, data: '1'}
-
-   # === Pause Windows Updates to 2038 January 19
-   # === FlightSettingsMaxPauseDays is responsible for the rest regs to work
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'FlightSettingsMaxPauseDays', type: REG_DWORD, data: '5269'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'PauseFeatureUpdatesStartTime', type: REG_SZ, data: '2023-08-17T12:47:51Z'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'PauseFeatureUpdatesStartTime', type: REG_SZ, data: '2038-01-19T03:14:07Z'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'PauseQualityUpdatesStartTime', type: REG_SZ, data: '2023-08-17T12:47:51Z'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'PauseQualityUpdatesEndTime', type: REG_SZ, data: '2038-01-19T03:14:07Z'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'PauseUpdatesStartTime', type: REG_SZ, data: '2023-08-17T12:47:51Z'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'PauseUpdatesExpiryTime', type: REG_SZ, data: '2038-01-19T03:14:07Z'}
-  
+    # ====================== 
 
     # === Do not allow update deferral policies to cause scans against Windows Update - Enabled
   - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate', value: 'DisableDualScan', type: REG_DWORD, data: '1'}  
   
-    # === Do not include drivers with Windows Updates - Enabled
-  - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate', value: 'ExcludeWUDriversInQualityUpdate', type: REG_DWORD, data: '1'}
-    # === Enabling Windows Update Power Management to automatically wake up the system to install scheduled updates - Disabled
-  - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate', value: 'AUPowerManagement', type: REG_DWORD, data: '0'}
-
     # === Turn off auto-restart notifications for update installations - Enabled
   - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate', value: 'SetAutoRestartNotificationDisable', type: REG_DWORD, data: '1'}
     # === Turn on recommended updates via Automatic Updates - Disabled
@@ -79,13 +59,6 @@ actions:
     # === Windows Insider Program - Disabled
     # ------> For Version 1703 and below.
   - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds', value: 'AllowBuildPreview', type: REG_DWORD, data: '0'}
-    # ===========================
-    # === Driver Installation ===
-    # ===========================
-    # === Turn off Windows Update device driver search prompt - Enabled
-    # ------> https://admx.help/?Category=Windows_10_2016&Policy=Microsoft.Policies.DeviceSoftwareSetup::DriverSearchPlaces_DontPromptForWindowsUpdate_1
-  - !registryValue: {path: 'HKCU\Software\Policies\Microsoft\Windows\DriverSearching', value: 'DontPromptForWindowsUpdate', type: REG_DWORD, data: '1'}
-  - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\DriverSearching', value: 'DontPromptForWindowsUpdate', type: REG_DWORD, data: '1'}
     # ===========================
     # === Device Installation ===
     # ===========================

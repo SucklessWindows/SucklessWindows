@@ -36,7 +36,7 @@ features:
   - sw\registry\disable-logging.yml
   - sw\registry\disable-prefetcher-superfetch-and-readyboost.yml
   - sw\registry\disable-system-restore-pre-defined-config.yml
-  # - sw\registry\disable-user-account-control-uac.yml
+  - sw\registry\disable-user-account-control-uac.yml
   - sw\registry\enable-audio-communications-do-nothing.yml
   - sw\registry\fixes.yml
   - sw\registry\make-msi-installer-work-in-safe-mode.yml

@@ -12,3 +12,4 @@ features:
   - sw\registry.yml
   - sw\config.yml
   - sw\theme.yml
+  - sw\security-maintenance.yml
