@@ -1,4 +1,5 @@
-# Suckless Windows
+![banner](https://raw.githubusercontent.com/SucklessWindows/artworks/main/banner.png)
+
 An open and lightweight modification to Windows, designed to optimize performance, privacy and usability.
 
 # 🤔 Why Suckless Windows

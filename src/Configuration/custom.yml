@@ -11,3 +11,4 @@ features:
   - sw\appx.yml
   - sw\registry.yml
   - sw\config.yml
+  - sw\theme.yml

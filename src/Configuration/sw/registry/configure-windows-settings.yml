@@ -172,6 +172,18 @@ actions:
     # === Record game clips, screenshots and broadcast using Game bar - Off
   - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR', value: 'AppCaptureEnabled', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKCU\System\GameConfigStore', value: 'GameDVR_Enabled', type: REG_DWORD, data: '0'}
+    # ======> GameMode
+    # === Enable GameMode - Off
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\GameBar'
+    value: 'AllowAutoGameMode'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\GameBar'
+    value: 'AutoGameModeEnabled'
+    data: '0'
+    type: REG_DWORD
     # ===============
     # === Privacy ===
     # ===============
