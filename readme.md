@@ -22,7 +22,7 @@ Suckless Windows applies some modifications to make Windows easier to use. This 
 
 # 🔧 Installation
 ## Recommend version
-- Windows 10 (1903 or higher)
+- Windows 10 (1809 or higher)
 - Windows 11
 
 ## Installation guide
