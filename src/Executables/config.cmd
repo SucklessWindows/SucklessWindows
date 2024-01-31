@@ -46,13 +46,6 @@ wevtutil sl Microsoft-Windows-SleepStudy/Diagnostic /q:false >NUL 2>nul
 wevtutil sl Microsoft-Windows-Kernel-Processor-Power/Diagnostic /q:false >NUL 2>nul
 wevtutil sl Microsoft-Windows-UserModePowerService/Diagnostic /q:false >NUL 2>nul
 
-echo Configuring boot settings
-bcdedit /deletevalue useplatformclock >NUL 2>nul
-::bcdedit /set useplatformtick yes >NUL 2>nul
-bcdedit /set disabledynamictick yes >NUL 2>nul
-bcdedit /set bootmenupolicy Legacy >NUL 2>nul
-bcdedit /set lastknowngood yes >NUL 2>nul
-
 echo Optimizing NTFS settings
 fsutil behavior set disableLastAccess 1 >NUL 2>nul
 fsutil behavior set disable8dot3 1 >NUL 2>nul
