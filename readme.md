@@ -5,6 +5,7 @@
 <div align="center">
   <a href="#-installation">🔧 Installation</a>  • 
   <a href="#-why-suckless-windows">🤔 Why Suckless Windows</a>  • 
+  <a href="#-support">💝 Support</a> • 
   <a href="https://discord.gg/fxeSRbVfkK">☎️ Discord</a>
 </div>
 
@@ -34,6 +35,11 @@ Suckless Windows applies some modifications to make Windows easier to use. This 
 - Open `AME Wizard Beta.exe` from the AME Wizard folder
 - Drag and drop the `sw-x.xxx.abpx` into AME Wizard
 - Follow the on-screen instructions from AME Wizard to successfully install Suckless Windows
+
+# 💝 Support
+If you like my project and would like to support & appreciate it via donation then I'll gladly accept it.
+- [☕Ko-fi](https://ko-fi.com/p3nguinkun)
+- [💳 PayPal](https://paypal.me/p3nguinkun)
 
 # 🛠️ Build
 - Install 7-zip
