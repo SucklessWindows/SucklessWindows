@@ -39,20 +39,6 @@ actions:
      weight: 150
      option: "browser-librewolf"
 
-  # Chrome
-  - !writeStatus: {status: 'Installing LibreWolf', option: "browser-chrome"}
-  - !cmd:
-     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums googlechrome'
-     weight: 150
-     option: "browser-chrome"
-
-  # Brave
-  - !writeStatus: {status: 'Installing LibreWolf', option: "browser-brave"}
-  - !cmd:
-     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums brave'
-     weight: 150
-     option: "browser-brave"
-
 # Media
   # mpv
   - !writeStatus: {status: 'Installing mpv', option: "media-mpv"}
@@ -104,17 +90,3 @@ actions:
     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums notepadplusplus'
     weight: 150
     option: "utils-npp"
-
-  # Visual Studio Code
-  - !writeStatus: {status: 'Installing Notepad++', option: "utils-vscode"}
-  - !cmd:
-    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums vscode'
-    weight: 150
-    option: "utils-vscode"
-
-  # GIMP
-  - !writeStatus: {status: 'Installing Notepad++', option: "utils-gimp"}
-  - !cmd:
-    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums gimp'
-    weight: 150
-    option: "utils-gimp"
