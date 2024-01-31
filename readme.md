@@ -25,6 +25,9 @@ Suckless Windows applies some modifications to make Windows easier to use. This 
 - Windows 10 (1809 or higher)
 - Windows 11
 
+## Some notes
+- Dont care about `Malicious`, I don't have money to verify it.
+
 ## Installation guide
 - Download [AME Wizard](https://ameliorated.io/) and [Suckless Windows Playbook](https://github.com/SucklessWindows/SucklessWindows/releases/latest)
 - Extract AME Wizard
@@ -45,6 +48,7 @@ git clone https://github.com/SucklessWindows/SucklessWindows
 - Set the `Archive format` to `7z` and click `OK`
 
 # Credits
+- [p3nguin-kun](https://github.com/p3nguin-kun) (of course!)
 - [Some cool contributors](https://github.com/SucklessWindows/SucklessWindows/graphs/contributors)
 
 # Contributions
