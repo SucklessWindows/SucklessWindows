@@ -60,3 +60,18 @@ actions:
     option: "configure-theme"
   - !run:
     {exe: 'rundll32.exe', args: 'user32.dll,UpdatePerUserSystemParameters', option: "configure-theme"}
+
+    # Disable Animations and Effects
+  - !registryValue:
+    path: 'HKU\%%a\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+    value: 'MinAnimate'
+    data: '0'
+    type: REG_SZ
+    option: "disable-effects"
+
+  - !registryValue:
+    path: 'HKU\%%a\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+    value: 'EnableTransparency'
+    data: '0'
+    type: REG_SZ
+    option: "disable-effects"

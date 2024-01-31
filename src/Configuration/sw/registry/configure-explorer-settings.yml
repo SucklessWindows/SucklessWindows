@@ -136,23 +136,3 @@ actions:
     # === Notify antivirus programs when opening attachments - Disabled
     # ------> Default is 3
   - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments', value: 'ScanWithAntiVirus', type: REG_DWORD, data: '1'}
-    # ========================
-    # === Discarded Tweaks ===
-    # ========================
-    # === Remove "Give access to" from context menu.
-    # ------> (Discarded due to insignificance)
-    # [-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\Sharing]
-    # [-HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\Sharing]
-    # [-HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers\Sharing]
-    # [-HKEY_CLASSES_ROOT\Directory\shellex\CopyHookHandlers\Sharing]
-    # [-HKEY_CLASSES_ROOT\Directory\shellex\PropertySheetHandlers\Sharing]
-    # [-HKEY_CLASSES_ROOT\Drive\shellex\ContextMenuHandlers\Sharing]
-    # [-HKEY_CLASSES_ROOT\Drive\shellex\PropertySheetHandlers\Sharing]
-    # [-HKEY_CLASSES_ROOT\LibraryFolder\background\shellex\ContextMenuHandlers\Sharing]
-    # [-HKEY_CLASSES_ROOT\UserLibraryFolder\shellex\ContextMenuHandlers\Sharing]
-    # === Disables useless Explorer items/features.
-    # ------> (Discarded due to conflictions with Quick Access and file/folder history)
-    # [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-    # "Start_ShowRun"=dword:00000001
-    # "Start_TrackDocs"=dword:00000000
-    # "Start_JumpListItems"=dword:00000000

@@ -32,12 +32,6 @@ actions:
     option: "configure-lpv"
     weight: 150
 
-  - !run:
-    exeDir: true
-    exe: "theme.cmd"
-    option: "configure-theme"
-    weight: 90
-
   - !writeStatus: {status: "Configuring features"}
   - !run:
     exeDir: true
@@ -56,6 +50,3 @@ actions:
   - !appx: {operation: clearCache, name: '*XboxGamingOverlay*'}
   - !appx: {operation: clearCache, name: '*XboxIdentityProvider*'}
   - !appx: {operation: clearCache, name: '*XboxSpeechToTextOverlay*'}
-
-    # Start as user process to prevent weird look due to running as TrustedInstaller
-  # - !run: {baseDir: true, exe: "NSudoLC.exe", args: '-U:C -UseCurrentConsole explorer.exe'}

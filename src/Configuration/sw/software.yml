@@ -76,6 +76,28 @@ actions:
     weight: 150
     option: "office-onlyoffice"
 
+# Productivity
+  # Visual Studio Code
+  - !writeStatus: {status: 'Installing Visual Studio Code', option: "productivity-vscode"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums vscode'
+    weight: 150
+    option: "productivity-vscode"
+
+  # GIMP
+  - !writeStatus: {status: 'Installing Visual Studio Code', option: "productivity-gimp"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums gimp'
+    weight: 150
+    option: "productivity-gimp"
+
+  # OBS Studio
+  - !writeStatus: {status: 'Installing Visual Studio Code', option: "productivity-vscode"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums obs-studio'
+    weight: 150
+    option: "productivity-obs"
+
 # Utils
   # 7zip
   - !writeStatus: {status: 'Installing 7-zip', option: "utils-7zip"}
