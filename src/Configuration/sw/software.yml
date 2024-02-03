@@ -16,6 +16,13 @@ actions:
   #   option: "dotnet35"
 
 # Browser
+  # Brave
+  - !writeStatus: {status: 'Installing Brave', option: "browser-brave"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums brave'
+    weight: 150
+    option: "browser-brave"
+
   # Firefox
   - !writeStatus: {status: 'Installing Firefox', option: "browser-firefox"}
   - !cmd:
@@ -24,13 +31,6 @@ actions:
     option: "browser-firefox"
   - !writeStatus: {status: 'Configuring Firefox', option: "browser-firefox"}
   - !run: {exe: 'firefox.cmd', exeDir: true, weight: 20, option: "browser-firefox"}
-
-  # Ungoogled Chromium
-  - !writeStatus: {status: 'Installing Ungoogled Chromium', option: "browser-ugc"}
-  - !cmd:
-     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums ungoogled-chromium'
-     weight: 150
-     option: "browser-ugc"
 
   # Librewolf
   - !writeStatus: {status: 'Installing LibreWolf', option: "browser-librewolf"}
