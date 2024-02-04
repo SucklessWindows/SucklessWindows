@@ -51,6 +51,7 @@ git clone https://github.com/SucklessWindows/SucklessWindows
 - Select all the files and folders within the Playbook folder
 - Right click and select `7-zip > Add to archive`
 - Name the archive as you please, with a .apbx file extension
+- Set archive password to `malte`
 - Set the `Archive format` to `7z` and click `OK`
 
 # Credits
