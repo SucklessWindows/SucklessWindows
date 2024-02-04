@@ -1,14 +1,14 @@
 ---
-title: Add Theme
+title: Config Theme
 description: Adds and sets Suckless Windows theme
 privilege: TrustedInstaller
 actions:
-
+  
     # Copy files
   - !cmd:
-    command: 'copy /y "Wallpapers" "%windir\Wallpapers" > nul'
+    command: 'robocopy "Wallpapers" "C:\SucklessWindows\Wallpapers" /E /IM /IT /NP > nul'
     exeDir: true
-    option: "configure-theme"
+    wait: true
 
     # Set background
   - !registryValue:
@@ -20,14 +20,14 @@ actions:
   - !registryValue:
     path: 'HKCU\Control Panel\Desktop'
     value: 'WallPaper'
-    data: '%windir%\Wallpapers\img.png'
+    data: '%SystemDrive%\SucklessWindows\Wallpapers\img.png'
     type: REG_SZ
     option: "configure-theme"
 
   - !registryValue:
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers'
     value: 'BackgroundHistoryPath0'
-    data: '%windir%\Wallpapers\img.png'
+    data: '%SystemDrive%\SucklessWindows\Wallpapers\img.png'
     type: REG_SZ
     option: "configure-theme"
 
