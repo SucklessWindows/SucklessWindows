@@ -1,4 +1,4 @@
-![banner](https://raw.githubusercontent.com/SucklessWindows/artworks/main/banner.png)
+![banner](https://raw.githubusercontent.com/SucklessWindows/artworks/main/2024/banner.png)
 
 <p align="center">An open and lightweight modification to Windows, designed to optimize performance, privacy and usability.</p>
 
