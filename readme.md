@@ -27,6 +27,7 @@ Suckless Windows applies some modifications to make Windows easier to use. This 
 - Windows 11
 
 ## Some notes
+- You should only use SucklessWindows after reinstalling Windows
 - Dont care about `Malicious`, I don't have money to verify it.
 
 ## Installation guide
