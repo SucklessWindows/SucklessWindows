@@ -3,19 +3,6 @@ title: fixes
 description: fixes
 privilege: TrustedInstaller
 actions:
-
-    # === Fix certain windows (mmc.exe, device manager, etc) from becoming blurry due to improper scaling in Windows 10.
-    # ------> 8.1 specific fixes, they are fixed in latest updates
-    # [HKEY_CURRENT_USER\Control Panel\Desktop]
-    # "Win8DpiScaling"=dword:00000000
-    # "DpiScalingVer"=dword:00001000
-    # "LogPixels"=dword:00000096
-    # === Some builds had issue with registry hive not existing and thus not saving volume mixer per application settings.
-    # === Touchpad fix.
-    # [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\PrecisionTouchPad]
-    # "AAPThreshold"=dword:00000000
-    # [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\PrecisionTouchPad]
-    # "AAPThreshold"=dword:00000000
     # === Changes Time zone configuration from local time to UTC (Coordinated Universal Time).
     # ------> Sets default time to UTC to fix Windows and Linux showing different Times when dual booting and to provide a more universal Time configuration. Most Linux distros use UTC by default.
     # ------> https://www.howtogeek.com/323390/how-to-fix-windows-and-linux-showing-different-times-when-dual-booting/
@@ -38,13 +25,6 @@ actions:
     # ------> https://answers.microsoft.com/en-us/windows/forum/all/ctfmonexe-or-ctf-loader-not-automaticly-starting/4b6b91b3-e363-43cb-9715-92a1976e270f
     # [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run]
     # "ctfmon"="C:\Windows\System32\ctfmon.exe"
-    # === Fix WU Taskbar
-  # - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'TrayIconVisibility', type: REG_DWORD, data: '0'}
-    # === Stop indexing src and Licenses folders
-  # - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\PreventIndexingCertainPaths', value: 'file:///C:\Users\Default\Documents\Workspace\Revision-Tool\bin\*', type: REG_SZ, data: 'file:///C:\Users\Default\Documents\Workspace\Revision-Tool\bin\*'}
-  # - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\PreventIndexingCertainPaths', value: 'file:///%userprofile%\Documents\Workspace\Revision-Tool\bin\*', type: REG_SZ, data: 'file:///%userprofile%\Documents\Workspace\Revision-Tool\bin\*'}
-  # - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\PreventIndexingCertainPaths', value: 'file:///C:\Windows\src\*', type: REG_SZ, data: 'file:///C:\Windows\src\*'}
-  # - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\PreventIndexingCertainPaths', value: 'file:///C:\Licenses\*', type: REG_SZ, data: 'file:///C:\Licenses\*'}
     # === Prevent MS Edge Chromium being installed after updates (Legacy Edge still gets installed)
     # === Fix for VS not being allowed to install WebView2
     # ------> Credits to https://github.com/AveYo

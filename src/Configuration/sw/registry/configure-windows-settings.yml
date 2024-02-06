@@ -3,32 +3,9 @@ title: configure-windows-settings
 description: configure-windows-settings
 privilege: TrustedInstaller
 actions:
-
-    # === Hide stripped components from Settings - Windows Updates
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'SettingsPageVisibility', type: REG_SZ, data: 'hide:cortana;privacy-automaticfiledownloads;privacy-feedback;windowsinsider'}
-
-  # === Hide Insider page from Settings --> Windows Updates
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\WindowsSelfHost\UI\Visibility', value: 'HideInsiderPage', type: REG_DWORD, data: '1'}
-
-  # - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'IsWUHidden', type: REG_DWORD, data: '1'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'TrayIconVisibility', type: REG_DWORD, data: '0'}
     # ==============
     # === System ===
     # ==============
-    # ======> Display -> Graphics settings
-    # === Hardware-accelerated GPU scheduling - On
-    # ------> Requires build 20H1+
-    # ------> https://www.tenforums.com/tutorials/150440-turn-off-hardware-accelerated-gpu-scheduling-windows-10-a.html
-    # ------> One of our users had Hardware Acceleration issues, therefore discarded
-    # [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\GraphicsDrivers]
-    # "HwSchMode"=dword:00000002
-    # ======> Notifications & actions
-    # === Add or remove quick actions -> Removes all pinned quick actions.
-    # [-HKEY_CURRENT_USER\Control Panel\Quick Actions\Pinned]
-    # ======> Storage
-    # === Allow Storage Sense - Disabled
-    # ------> Storage Sense is turned off the machine. Users cannot enable Storage Sense
-  # - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\StorageSense', value: 'AllowStorageSenseGlobal', type: REG_DWORD, data: '0'}
     # ======> Tablet mode
     # === Adjust Tablet mode to always desktop mode.
     # ------> When I sign in - Use desktop mode.
@@ -93,15 +70,6 @@ actions:
     # === Personalization ===
     # =======================
     # ======> Colors
-    # === Choose your color - Custom colors (designed for UI)
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Accents\0\Theme0', value: 'Color', type: REG_DWORD, data: '4279374354'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Accents\0\Theme1', value: 'Color', type: REG_DWORD, data: '4278190294'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Accents\1\Theme0', value: 'Color', type: REG_DWORD, data: '4294926889'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Accents\1\Theme1', value: 'Color', type: REG_DWORD, data: '4282117119'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Accents\2\Theme0', value: 'Color', type: REG_DWORD, data: '4278229247'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Accents\2\Theme1', value: 'Color', type: REG_DWORD, data: '4283680768'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Accents\3\Theme0', value: 'Color', type: REG_DWORD, data: '4294901930'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Accents\3\Theme1', value: 'Color', type: REG_DWORD, data: '4294967064'}
     # === Choose your default app mode - Dark (theme)
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'AppsUseLightTheme', type: REG_DWORD, data: '0', option: "configure-darkmode", weight: 70}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'SystemUsesLightTheme', type: REG_DWORD, data: '0', option: "configure-darkmode", weight: 50}
@@ -196,10 +164,6 @@ actions:
     # === Allow webistes to provide locally relevant content by accessing my language list - Off
     # ------> Do not let websites access local language list - Enabled
   - !registryValue: {path: 'HKCU\Control Panel\International\User Profile', value: 'HttpAcceptLanguageOptOut', type: REG_DWORD, data: '1', weight: 50}
-    # === Allow Windows to track app launches to improve Start and search - Off
-    # ------> Let Windows track app launches to improve Start and search results - Disabled
-    # [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-    # "Start_TrackProgs"=dword:00000000
     # ======> Speech
     # === Online speech recognition - Off
   - !registryValue: {path: 'HKCU\Software\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy', value: 'HasAccepted', type: REG_DWORD, data: '0'}
@@ -246,9 +210,6 @@ actions:
     # ------> https://www.joseespitia.com/2019/07/24/registry-keys-for-windows-10-application-privacy-settings/
     # === Location - Off
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location', value: 'Value', type: REG_SZ, data: 'Deny'}
-    # REMINDER
-    # [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location]
-    # "Value"="Deny"
     # === Camera - On
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam', value: 'Value', type: REG_SZ, data: 'Allow'}
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam', value: 'Value', type: REG_SZ, data: 'Allow'}
@@ -263,26 +224,9 @@ actions:
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\activity', value: 'Value', type: REG_SZ, data: 'Deny'}
     # === Account info - Off
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation', value: 'Value', type: REG_SZ, data: 'Deny'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation', value: 'Value', type: REG_SZ, data: 'Deny'}
-    # === Contacts - Off
-    # --------> Needed for Mail & Calendar app
-    # [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts]
-    # "Value"="Deny"
-    # [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts]
-    # "Value"="Deny"
     # === Calendar - Off
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appointments', value: 'Value', type: REG_SZ, data: 'Deny'}
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appointments', value: 'Value', type: REG_SZ, data: 'Deny'}
-    # === Call history - Off
-    # [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCallHistory]
-    # "Value"="Deny"
-    # [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCallHistory]
-    # "Value"="Deny"
-    # === Email - Off
-    # [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\email]
-    # "Value"="Deny"
-    # [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\email]
-    # "Value"="Deny"
     # === Tasks - Off
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userDataTasks', value: 'Value', type: REG_SZ, data: 'Deny'}
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userDataTasks', value: 'Value', type: REG_SZ, data: 'Deny'}
@@ -321,40 +265,3 @@ actions:
     # === Disable Wi-Fi Sense telemetry
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting', value: 'value', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots', value: 'value', type: REG_DWORD, data: '0'}
-    # ========================
-    # === Discarded Tweaks ===
-    # ========================
-    # === Block Cortana connections via Firewall
-    # ------> Cortana gets removed either way, so these are discarded from integration for compatibility reasons + not to flood the Firewall registry entry.
-    # [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules]
-    # "Block Cortana ActionUriServer.exe"="v2.26|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\ActionUriServer.exe|Name=Block Cortana ActionUriServer.exe|Desc=Block Cortana Outbound UDP/TCP Traffic|"
-    # [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules]
-    # "Block Cortana PlacesServer.exe"="v2.26|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\PlacesServer.exe|Name=Block Cortana PlacesServer.exe|Desc=Block Cortana Outbound UDP/TCP Traffic|"
-    # [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules]
-    # "Block Cortana RemindersServer.exe"="v2.26|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\RemindersServer.exe|Name=Block Cortana RemindersServer.exe|Desc=Block Cortana Outbound UDP/TCP Traffic|"
-    # [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules]
-    # "Block Cortana RemindersShareTargetApp.exe"="v2.26|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\RemindersShareTargetApp.exe|Name=Block Cortana RemindersShareTargetApp.exe|Desc=Block Cortana Outbound UDP/TCP Traffic|"
-    # [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules]
-    # "Block Cortana SearchUI.exe"="v2.26|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\SearchUI.exe|Name=Block Cortana SearchUI.exe|Desc=Block Cortana Outbound UDP/TCP Traffic|"
-    # [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules]
-    # "Block Cortana Package"="v2.26|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|Name=Block Cortana Package|Desc=Block Cortana Outbound UDP/TCP Traffic|AppPkgId=S-1-15-2-1861897761-1695161497-2927542615-642690995-327840285-2659745135-2630312742|Platform=2:6:2|Platform2=GTEQ|"
-    # === Disable DeliveryOptimization
-    # ------> May conflict with Microsoft Store functions.
-    # HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization]
-    # "DODownloadMode"=dword:00000100
-    # === Enable backup for Apps - Disabled
-    # ------> Only present on Windows 8 and 8.1, therefore discarded.
-    # [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync]
-    # "EnableBackupForWin8Apps"=dword:00000000
-    # === Autocorrect misspelled words I type (?)
-    # ------> Undocumented, therefore discarded.
-    # ------> Hardware keyboard
-    # [HKEY_CURRENT_USER\Software\Microsoft\Input\Settings]
-    # "EnableHwkbAutocorrection2"=dword:00000000
-    # [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Input\Settings]
-    # "EnableHwkbAutocorrection2"=dword:00000000
-    # === Disable Speech
-    # ------> Undocumented, discarded.
-    # ------> https://github.com/CHEF-KOCH/Windows-Redstone-4-1803-Data-Analysis/blob/master/Registry/ModelDownloadAllowed.reg
-    # [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech_OneCore\Preferences]
-    # "VoiceActivationDefaultOn"=dword:00000000

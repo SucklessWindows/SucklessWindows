@@ -3,7 +3,7 @@ title: Config Theme
 description: Adds and sets Suckless Windows theme
 privilege: TrustedInstaller
 actions:
-  
+  - !writeStatus: {status: "Theming", option: "configure-theme"}
     # Copy files
   - !cmd:
     command: 'robocopy "Wallpapers" "C:\SucklessWindows\Wallpapers" /E /IM /IT /NP > nul'
@@ -63,14 +63,14 @@ actions:
 
     # Disable Animations and Effects
   - !registryValue:
-    path: 'HKU\%%a\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+    path: 'HKCU\Control Panel\Desktop\WindowMetrics'
     value: 'MinAnimate'
     data: '0'
     type: REG_SZ
     option: "disable-effects"
 
   - !registryValue:
-    path: 'HKU\%%a\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
     value: 'EnableTransparency'
     data: '0'
     type: REG_SZ

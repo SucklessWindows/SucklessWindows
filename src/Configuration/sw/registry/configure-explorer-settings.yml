@@ -4,18 +4,6 @@ description: configure-explorer-settings
 privilege: TrustedInstaller
 actions:
 
-    # ===============
-    # === General ===
-    # ===============
-    # === Open File Exlporer to - This PC (instead of Quick Access)
-    # [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-    # "LaunchTo"=dword:00000001
-    # === Show recently used files in Quick Access - Enabled
-    # [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
-    # "ShowRecent"=dword:00000001
-    # === Show frequently used files in Quick Access - Enabled
-    # [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
-    # "ShowFrequent"=dword:00000001
     # ============
     # === View ===
     # ============
@@ -39,11 +27,6 @@ actions:
   - !registryValue: {path: 'HKCU\Control Panel\Sound', value: 'Beep', type: REG_SZ, data: 'no'}
     # === Disable ' - Shortcut.' text on shortcut creation.
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer', value: 'link', type: REG_BINARY, data: '00000000'}
-    # === Always show all icons and notifications on the taskbar - Disabled
-    # ------> The default for this can be set under HKEY_LOCAL_MACHINE.
-    # ------> Defaulted due to removal of subjective changes.
-    # [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer]
-    # "EnableAutoTray"=dword:00000001
     # === Always show more details in a file copy dialog - Enabled
   - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager', value: 'EnthusiastMode', type: REG_DWORD, data: '1'}
     # === AutoPlay - Disabled
@@ -101,15 +84,11 @@ actions:
   - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Control', value: 'WaitToKillServiceTimeout', type: REG_SZ, data: '1500'}
     # === Disable Taskbar Animations. (prevents the pop up windows in the taskbar from getting stuck too)
   - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAnimations', type: REG_DWORD, data: '0', option: 'configure-explorer-taskbar-animations'}
-  
   - !registryValue: { path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAnimations', operation: delete, option: '!configure-explorer-taskbar-animations' }
-
-
     # === Turn off display of recent search entries in the File Explorer search box - Enabled
     # ------> Additionally this also disables Bing in the Start Menu in Windows 10's May 2020 update (20H1).
     # ------> https://www.howtogeek.com/224159/how-to-disable-bing-in-the-windows-10-start-menu/
   - !registryValue: {path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer', value: 'DisableSearchBoxSuggestions', type: REG_DWORD, data: '1'}
-    
     # === Disable the new Weather and News widgets
     # ------> Other parts of it can be found in configure-ifeo
   - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds', value: 'EnableFeeds', type: REG_DWORD, data: '0'}
@@ -117,8 +96,12 @@ actions:
   - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarDa', type: REG_DWORD, data: '0'}
     # ------> since 22621.1343 builds, Windows 11 tries to reinstall WebExperience even if it is removed and stored in deprovisioned apps list
   - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Dsh', value: 'AllowNewsAndInterests', type: REG_DWORD, data: '0'}
-
-  
+    # Align taskbar to Left
+  - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAl', type: REG_DWORD, data: '0'}
+    # Enable Search button
+  - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Search', value: 'SearchboxTaskbarMode', type: REG_DWORD, data: '1'}
+    # Enable 'Show hidden icon' button
+  - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer', value: 'EnableAutoTray', type: REG_DWORD, data: '0'}
     # ==========================
     # === Attachment Manager ===
     # ==========================

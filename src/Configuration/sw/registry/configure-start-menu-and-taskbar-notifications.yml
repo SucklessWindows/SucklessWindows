@@ -37,9 +37,6 @@ actions:
     # === Disable showing balloon notifications as toasts - Disabled
     # ------> Bring back old school school Windows 7 balloon traytip notifications.
   - !registryValue: {path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'EnableLegacyBalloonNotifications', type: REG_DWORD, data: '1'}
-    # === Remove Notifications and Action Center - Enabled
-    # [HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
-    # "DisableNotificationCenter"=dword:00000001
   
     # === Remove the People Bar from the taskbar - Enabled
   - !registryValue: {path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer', value: 'HidePeopleBar', type: REG_DWORD, data: '1'}
@@ -49,26 +46,13 @@ actions:
   - !registryValue: {path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer', value: 'NoBalloonFeatureAdvertisements', type: REG_DWORD, data: '1'}
     # === Turn off notification area cleanup - Enabled
   - !registryValue: {path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer', value: 'NoAutoTrayNotify', type: REG_DWORD, data: '1'}
-    # === Turn off user tracking - Enabled
-    # ------> Can be found in (Configure_Privacy.reg)
-    # [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer]
-    # "NoInstrumentation"=dword:00000001
     # === Remove the Meet Now icon - Enabled
   - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'HideSCAMeetNow', type: REG_DWORD, data: '1'}
     # ===============================================
     # === Start Menu and Taskbar -> Notifications ===
     # ===============================================
-    # === Turn off tile notifications - Enabled
-    # [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\PushNotifications]
-    # "NoTileApplicationNotification"=dword:00000001
     # === Turn off notifications network usage - Enabled
   - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications', value: 'NoCloudApplicationNotification', type: REG_DWORD, data: '1'}
-    # === Turn off toast notifications - Enabled
-    # [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\PushNotifications]
-    # "NoToastApplicationNotification"=dword:00000001
-    # === Turn off toast notifications on the lock screen - Enabled
-    # [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\PushNotifications]
-    # "NoToastApplicationNotificationOnLockScreen"=dword:00000001
     # === Enable news and interests on the taskbar - Disabled
     # -------> It is integrated in SearchApp.exe
   - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds', value: 'EnableFeeds', type: REG_DWORD, data: '0'}
@@ -83,24 +67,8 @@ actions:
     # =============
     # === Extra ===
     # =============
-    # === Notifications from Apps and Other Senders - Disabled
-    # ------> https://www.tenforums.com/tutorials/4111-turn-off-notifications-apps-senders-windows-10-a.html
-    # [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\PushNotifications]
-    # "ToastEnabled"=dword:00000000
     # === (Windows Defender) Disable Non Critical Notifications - Enabled
   - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Notifications', value: 'DisableEnhancedNotifications', type: REG_DWORD, data: '1'}
     # === (Windows Update) Display options for update notifications
     # === 2 – Disable all notifications, including restart warnings
   - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate', value: 'UpdateNotificationLevel', type: REG_DWORD, data: '2'}
-    # === Show Notifications on Lock Screen - Disabled
-    # ------> https://www.tenforums.com/tutorials/31116-turn-off-lock-screen-notifications-windows-10-a.html
-    # [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings]
-    # "NOC_GLOBAL_SETTING_ALLOW_TOASTS_ABOVE_LOCK"=dword:00000000
-    # === Lock Screen Reminder and VoIP calls Notifications - Disabled
-    # ------> https://www.tenforums.com/tutorials/31107-turn-off-lock-screen-reminders-voip-calls-windows-10-a.html
-    # [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings]
-    # "NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK"=dword:00000000
-    # === Removes the annoying notification that pops up after disabling Action Center
-    # ------> https://www.tenforums.com/tutorials/6004-enable-disable-action-center-windows-10-a-post321932.html#post321932
-    # [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings]
-    # "NOC_GLOBAL_SETTING_TOASTS_ENABLED"=dword:00000000

@@ -18,6 +18,3 @@ actions:
     # ------> https://sites.google.com/site/tweakradje/windows/windows-tweaking
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\EMDMgmt', value: 'GroupPolicyDisallowCaches', type: REG_DWORD, data: '1'}
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\EMDMgmt', value: 'AllowNewCachesByDefault', type: REG_DWORD, data: '0'}
-    # == MemoryCompression detection for Revision Tool
-    # ------> 0 = disabled
-  - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Control\Session Manager\Memory Management\PrefetchParameters', value: 'isMemoryCompressionEnabled', type: REG_DWORD, data: '0'}

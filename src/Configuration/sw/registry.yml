@@ -5,13 +5,11 @@ privilege: TrustedInstaller
 actions: 
   - !writeStatus: {status: "Tweaking registry"}
 features:
-  - sw\registry\ntlite-settings.yml
   - sw\registry\add-take-ownership-in-context-menu.yml
   - sw\registry\bypass-requirements.yml
   - sw\registry\config-info.yml
   - sw\registry\configure-crash-control.yml
   - sw\registry\configure-deprovisioned-apps.yml
-  - sw\registry\configure-explorer-folder-view.yml
   - sw\registry\configure-explorer-settings.yml
   - sw\registry\configure-ifeo.yml
   - sw\registry\configure-internet-explorer.yml
@@ -28,7 +26,6 @@ features:
   - sw\registry\configure-win32priorityseparation.yml
   - sw\registry\configure-windows-settings.yml
   - sw\registry\configure-windows-update-and-install.yml
-  # - sw\registry\disable-disk-defragmentation.yml
   - sw\registry\disable-automatic-maintenance.yml
   - sw\registry\disable-disk-checking.yml
   - sw\registry\disable-ease-of-access-features.yml
