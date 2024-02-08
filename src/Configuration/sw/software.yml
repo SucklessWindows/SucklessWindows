@@ -39,6 +39,28 @@ actions:
      weight: 150
      option: "browser-librewolf"
 
+# Mail
+  # Thunderbird
+  - !writeStatus: {status: 'Installing Thunderbird', option: "mail-thunderbird"}
+  - !cmd:
+     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums thunderbird'
+     weight: 150
+     option: "mail-thunderbird"
+     
+  # Spark
+  - !writeStatus: {status: 'Installing Spark', option: "mail-spark"}
+  - !cmd:
+     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums sparkmail'
+     weight: 150
+     option: "mail-spark"
+
+  # Mailspring
+  - !writeStatus: {status: 'Installing Mailspring', option: "mail-mailspring"}
+  - !cmd:
+     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums mailspring'
+     weight: 150
+     option: "mail-mailspring"
+
 # Media
   # mpv
   - !writeStatus: {status: 'Installing mpv', option: "media-mpv"}

@@ -3,15 +3,6 @@ title: configure-security
 description: configure-security
 privilege: TrustedInstaller
 actions:
-
-    # ============================
-    # === Spectre and Meltdown ===
-    # ============================
-    # === Disable Spectre and Meltdown Mitigations for improved performance.
-    # ------> FeatureSettings has to be set to 1 hexadecimal to fully disable these security protections.
-  - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Control\Session Manager\Memory Management', value: 'FeatureSettings', type: REG_DWORD, data: '1'}
-  - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Control\Session Manager\Memory Management', value: 'FeatureSettingsOverride', type: REG_DWORD, data: '3'}
-  - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Control\Session Manager\Memory Management', value: 'FeatureSettingsOverrideMask', type: REG_DWORD, data: '3'}
     # ==========================
     # === Mitigation Options ===
     # ==========================
