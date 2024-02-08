@@ -1,6 +1,6 @@
 ![banner](https://raw.githubusercontent.com/SucklessWindows/artworks/main/2024/banner.png)
-
-<p align="center">An open and lightweight modification to Windows, designed to optimize performance, privacy and usability.</p>
+An open and lightweight modification to Windows, designed to optimize performance, privacy and usability.
+note: SucklessWindows is not related to [suckless.org](https://suckless.org)
 
 <div align="center">
   <a href="#-installation">🔧 Installation</a>  • 
@@ -27,8 +27,9 @@ Suckless Windows applies some modifications to make Windows easier to use. This 
 - Windows 11
 
 ## Some notes
-- You should only use SucklessWindows after reinstalling Windows
 - Dont care about `Malicious`, I don't have money to verify it.
+- Before using, considering you already have a small understand how and what you need in your Windows machine, as the source code is public, please read what does it do, you can modify it to suit your needs.
+- I'm not responsible for anything if this breaks your Windows machine, I RECOMMEND only use Suckless Windows after reinstalled stock Windows from Microsoft, NOT ANY 3RD PARTY WINDOWS
 
 ## Installation guide
 - Download [AME Wizard](https://ameliorated.io/) and [Suckless Windows Playbook](https://github.com/SucklessWindows/SucklessWindows/releases/latest)
