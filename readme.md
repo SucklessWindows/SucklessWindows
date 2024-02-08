@@ -1,6 +1,6 @@
 ![banner](https://raw.githubusercontent.com/SucklessWindows/artworks/main/2024/banner.png)
 An open and lightweight modification to Windows, designed to optimize performance, privacy and usability.
-note: SucklessWindows is not related to [suckless.org](https://suckless.org)
+> note: SucklessWindows is not related to [suckless.org](https://suckless.org)
 
 <div align="center">
   <a href="#-installation">🔧 Installation</a>  • 
