@@ -1,0 +1,60 @@
+title: add-hashes-checking-submenu-in-context-menu
+description: add hashes checking submenu in context menu
+privilege: TrustedInstaller
+actions:
+    # === Remove previous Hashes submenu if it exists (also delte the one you downloaded on Internet).
+  - !registryKey: {path: 'HKCR\*\shell\hash', operation: delete}
+  - !registryKey: {path: 'HKCR\*\shell\hashes', operation: delete}
+    # === Add Hashes to the context menu.
+  - !registryKey: {path: 'HKCR\*\shell\hashes'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes', value: 'MUIVerb', type: REG_SZ, data: 'Hashes'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes', value: 'SubCommands', type: REG_SZ, data: ''}
+
+    # === Add SHA1 submenu.
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\01menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\01menu', value: 'MUIVerb', type: REG_SZ, data: 'SHA1'}
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\01menu\command'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\01menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath \"%1\" -algorithm SHA1 | format-list'}
+
+    # === Add SHA256 submenu.
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\02menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\02menu', value: 'MUIVerb', type: REG_SZ, data: 'SHA256'}
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\02menu\command'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\02menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath \"%1\" -algorithm SHA256 | format-list'}
+
+    # === Add SHA384 submenu.
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\03menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\03menu', value: 'MUIVerb', type: REG_SZ, data: 'SHA384'}
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\03menu\command'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\03menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath \"%1\" -algorithm SHA384 | format-list'}
+
+    # === Add SHA512 submenu.
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\04menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\04menu', value: 'MUIVerb', type: REG_SZ, data: 'SHA512'}
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\04menu\command'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\04menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath \"%1\" -algorithm SHA512 | format-list'}
+
+    # === Add MACTripleDES submenu.
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\05menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\05menu', value: 'MUIVerb', type: REG_SZ, data: 'MACTripleDES'}
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\05menu\command'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\05menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath \"%1\" -algorithm MACTripleDES | format-list'}
+
+    # === Add MD5 submenu.
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\06menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\06menu', value: 'MUIVerb', type: REG_SZ, data: 'MD5'}
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\06menu\command'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\06menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath \"%1\" -algorithm MD5 | format-list'}
+
+    # === Add RIPEMD160 submenu.
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\07menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\07menu', value: 'MUIVerb', type: REG_SZ, data: 'RIPEMD160'}
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\07menu\command'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\07menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath \"%1\" -algorithm RIPEMD160 | format-list'}
+
+    # === Add Show all submenu.
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\08menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\08menu', value: 'CommandFlags', type: REG_DWORD, data: '00000020'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\08menu', value: 'MUIVerb', type: REG_SZ, data: 'Show all'}
+  - !registryKey: {path: 'HKCR\*\shell\hashes\shell\08menu\command'}
+  - !registryValue: {path: 'HKCR\*\shell\hashes\shell\08menu\command', value: '', type: REG_SZ, data: 'powershell -noexit -command "& { get-filehash -literalpath \"%1\" -algorithm SHA1 | format-list; get-filehash -literalpath \"%1\" -algorithm SHA256 | format-list; get-filehash -literalpath \"%1\" -algorithm SHA384 | format-list; get-filehash -literalpath \"%1\" -algorithm SHA512 | format-list; get-filehash -literalpath \"%1\" -algorithm MACTripleDES | format-list; get-filehash -literalpath \"%1\" -algorithm MD5 | format-list; get-filehash -literalpath \"%1\" -algorithm RIPEMD160 | format-list }"'}
