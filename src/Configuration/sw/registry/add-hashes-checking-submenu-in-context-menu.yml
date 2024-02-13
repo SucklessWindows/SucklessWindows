@@ -1,0 +1,40 @@
+title: add-hashes-checking-submenu-in-context-menu
+description: add hashes checking submenu in context menu
+privilege: TrustedInstaller
+actions:
+  - !registryKey: {path: 'HKCR\*\shell\hash'}
+  - !registryValue: {path: 'HKCR\*\shell\hash', value: '', type: REG_SZ, data: 'Hash'}
+  - !registryValue: {path: 'HKCR\*\shell\hash', value: 'SubCommands', type: REG_SZ, data: ''}
+
+  - !registryKey: {path: 'HKCR\*\shell\hash\shell\01menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\01menu', value: '', type: REG_SZ, data: 'SHA1'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\01menu\command', value: '', type: REG_SZ, data: 'powershell -windowstyle hidden -Command "Get-FileHash -Path \'%1\' -Algorithm SHA1 | Format-List | Out-String | Set-Clipboard; [reflection.assembly]::loadwithpartialname(\'System.Windows.Forms\'); [System.Windows.Forms.MessageBox]::Show(\'SHA1 hash copied to clipboard.\', \'File Hash\')"'}
+
+  - !registryKey: {path: 'HKCR\*\shell\hash\shell\02menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\02menu', value: '', type: REG_SZ, data: 'SHA256'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\02menu\command', value: '', type: REG_SZ, data: 'powershell -windowstyle hidden -Command "Get-FileHash -Path \'%1\' -Algorithm SHA256 | Format-List | Out-String | Set-Clipboard; [reflection.assembly]::loadwithpartialname(\'System.Windows.Forms\'); [System.Windows.Forms.MessageBox]::Show(\'SHA256 hash copied to clipboard.\', \'File Hash\')"'}
+
+  - !registryKey: {path: 'HKCR\*\shell\hash\shell\03menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\03menu', value: '', type: REG_SZ, data: 'SHA384'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\03menu\command', value: '', type: REG_SZ, data: 'powershell -windowstyle hidden -Command "Get-FileHash -Path \'%1\' -Algorithm SHA384 | Format-List | Out-String | Set-Clipboard; [reflection.assembly]::loadwithpartialname(\'System.Windows.Forms\'); [System.Windows.Forms.MessageBox]::Show(\'SHA384 hash copied to clipboard.\', \'File Hash\')"'}
+
+  - !registryKey: {path: 'HKCR\*\shell\hash\shell\04menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\04menu', value: '', type: REG_SZ, data: 'SHA512'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\04menu\command', value: '', type: REG_SZ, data: 'powershell -windowstyle hidden -Command "Get-FileHash -Path \'%1\' -Algorithm SHA512 | Format-List | Out-String | Set-Clipboard; [reflection.assembly]::loadwithpartialname(\'System.Windows.Forms\'); [System.Windows.Forms.MessageBox]::Show(\'SHA512 hash copied to clipboard.\', \'File Hash\')"'}
+
+  - !registryKey: {path: 'HKCR\*\shell\hash\shell\05menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\05menu', value: '', type: REG_SZ, data: 'MACTripleDES'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\05menu\command', value: '', type: REG_SZ, data: 'powershell -windowstyle hidden -Command "Get-FileHash -Path \'%1\' -Algorithm MACTripleDES | Format-List | Out-String | Set-Clipboard; [reflection.assembly]::loadwithpartialname(\'System.Windows.Forms\'); [System.Windows.Forms.MessageBox]::Show(\'MACTripleDES hash copied to clipboard.\', \'File Hash\')"'}
+
+  - !registryKey: {path: 'HKCR\*\shell\hash\shell\06menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\06menu', value: '', type: REG_SZ, data: 'MD5'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\06menu\command', value: '', type: REG_SZ, data: 'powershell -windowstyle hidden -Command "Get-FileHash -Path \'%1\' -Algorithm MD5 | Format-List | Out-String | Set-Clipboard; [reflection.assembly]::loadwithpartialname(\'System.Windows.Forms\'); [System.Windows.Forms.MessageBox]::Show(\'MD5 hash copied to clipboard.\', \'File Hash\')"'}
+
+  - !registryKey: {path: 'HKCR\*\shell\hash\shell\07menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\07menu', value: '', type: REG_SZ, data: 'RIPEMD160'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\07menu\command', value: '', type: REG_SZ, data: 'powershell -windowstyle hidden -Command "Get-FileHash -Path \'%1\' -Algorithm RIPEMD160 | Format-List | Out-String | Set-Clipboard; [reflection.assembly]::loadwithpartialname(\'System.Windows.Forms\'); [System.Windows.Forms.MessageBox]::Show(\'RIPEMD160 hash copied to clipboard.\', \'File Hash\')"'}
+
+  - !registryKey: {path: 'HKCR\*\shell\hash\shell\08menu'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\08menu', value: 'CommandFlags', type: REG_DWORD, data: '00000020'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\08menu', value: '', type: REG_SZ, data: 'Show all'}
+  - !registryValue: {path: 'HKCR\*\shell\hash\shell\08menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath \'%1\' -algorithm SHA1 | Format-List | Out-String | Set-Clipboard; [reflection.assembly]::loadwithpartialname(\'System.Windows.Forms\'); [System.Windows.Forms.MessageBox]::Show(\'SHA1 hash copied to clipboard.\', \'File Hash\');get-filehash -literalpath \'%1\' -algorithm SHA256 | format-list;get-filehash -literalpath \'%1\' -algorithm SHA384 | format-list;get-filehash -literalpath \'%1\' -algorithm SHA512 | format-list;get-filehash -literalpath \'%1\' -algorithm MACTripleDES | format-list;get-filehash -literalpath \'%1\' -algorithm MD5 | format-list;get-filehash -literalpath \'%1\' -algorithm RIPEMD160 | format-list'}
