@@ -40,3 +40,4 @@ features:
   - sw\registry\mouse-tweaks.yml
   - sw\registry\old-rightclick-menu.yml
   - sw\registry\restore-windows-photo-viewer-all-users.yml
+  - sw\registry\add-hashes-checking-submenu-in-context-menu.yml
