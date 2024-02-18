@@ -51,7 +51,7 @@ features:
   - sw\tweaks\qol\hardware\mouse-tweaks.yml
 
     # qol\security
-  -sw\tweaks\qol\security\disable-uac-secure-desktop.yml
+  - sw\tweaks\qol\security\disable-uac-secure-desktop.yml
 
     # qol\shell
   - sw\tweaks\qol\shell\configure-search-and-cortana.yml
