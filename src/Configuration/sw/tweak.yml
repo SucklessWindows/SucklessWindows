@@ -56,11 +56,11 @@ features:
   - sw\tweaks\qol\shell\no-recommendation-startmenu.yml
 
     # qol\startup-shutdown
-  - sw\tweaks\qol\shell\configure-logon.yml
-  - sw\tweaks\qol\shell\configure-power-control.yml
-  - sw\tweaks\qol\shell\decrease-shutdown-time.yml
-  - sw\tweaks\qol\shell\disable-startup-delay.yml
-  - sw\tweaks\qol\shell\force-close-apps.yml
+  - sw\tweaks\qol\startup-shutdown\configure-logon.yml
+  - sw\tweaks\qol\startup-shutdown\configure-power-control.yml
+  - sw\tweaks\qol\startup-shutdown\decrease-shutdown-time.yml
+  - sw\tweaks\qol\startup-shutdown\disable-startup-delay.yml
+  - sw\tweaks\qol\startup-shutdown\force-close-apps.yml
 
     # qol\system
   - sw\tweaks\qol\system\configure-crash-control.yml
