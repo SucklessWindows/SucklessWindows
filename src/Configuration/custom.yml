@@ -9,7 +9,7 @@ features:
   - sw\services.yml
   - sw\components.yml
   - sw\appx.yml
-  - sw\registry.yml
+  - sw\tweak.yml
   - sw\theme.yml
   - sw\security-maintenance.yml
   - sw\config.yml

@@ -244,5 +244,3 @@ actions:
   - !file: {path: "%windir%\\SysWOW64\\OneDriveSettingSyncProvider.dll", option: "remove-onedrive"}
   - !file: {path: "%SystemDrive%\\OneDriveTemp", option: "remove-onedrive"}
   - !file: {path: "%ProgramData%\\Microsoft OneDrive", option: "remove-onedrive"}
-
-  # - !run: {exe: "explorer.exe", wait: false}

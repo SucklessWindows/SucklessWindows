@@ -47,3 +47,12 @@ actions:
 
   # == Windows Event Collector - Disabled
   - !service: {name: 'Wecsvc', operation: change, startup: 4} 
+
+  # == Other
+  - !service: {name: 'lfsvc', operation: change, startup: 4}
+  - !service: {name: 'MapsBroker', operation: change, startup: 4}
+  - !service: {name: 'OneSyncSvc', operation: change, startup: 4}
+  - !service: {name: 'TrkWks', operation: change, startup: 4}
+  - !service: {name: 'PcaSvc', operation: change, startup: 4}
+  - !service: {name: 'DiagTrack', operation: change, startup: 4}
+  - !service: {name: 'WSearch', operation: change, startup: 4}

@@ -90,9 +90,7 @@ actions:
     # === Allow device name to be sent in Windows diagnostic data - Disabled
   - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection', value: 'AllowDeviceNameInTelemetry', type: REG_DWORD, data: '0'}
     # === Allow Telemetry - Disabled
-    # ------> Can be found in (Configure_Windows_Settings.reg)
-    # [HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\DataCollection]
-    # "AllowTelemetry"=dword:00000000
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection', value: 'AllowTelemetry', data: '0', type: REG_DWORD}
     # === Configure Authenticated Proxy usage for the Connected User Experience and Telemetry service - Disabled
   - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection', value: 'DisableEnterpriseAuthProxy', type: REG_DWORD, data: '1'}
     # === Configure collection of browsing data for Desktop Analytics - Do not allow sending intranet or internet history (Disabled)
@@ -224,15 +222,5 @@ actions:
   - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Services\SharedAccess\Defaults\FirewallPolicy\FirewallRules', value: 'Block-Unified-Telemetry-Client', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=DiagTrack|Name=Block-Unified-Telemetry-Client|Desc=Block-Unified-Telemetry-Client|EmbedCtxt=DiagTrack|'}
   - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Services\SharedAccess\Defaults\FirewallPolicy\FirewallRules', value: 'Block-Windows-Error-Reporting', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=WerSvc|Name=Block-Unified-Error-Reporting|Desc=Block-Windows-Error-Reporting|EmbedCtxt=WerSvc|'}
     # Breaks Xbox
-  # - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Services\SharedAccess\Defaults\FirewallPolicy\FirewallRules', value: 'Block-Windows-Insider', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=wisvc|Name=Block-Windows-Insider|Desc=Block-Windows-Insider|EmbedCtxt=wisvc|'}
-    # "Block-Windows-Error-Reporting-2"="v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\WerFaultSecure.exe|Name=Block-Windows-Error-Reporting-2|Desc=Block-Windows-Error-Reporting-2"
-    # "Block-Windows-Error-Reporting-3"="v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\dmclient.exe|Name=Block-Windows-Error-Reporting-3|Desc=Block-Windows-Error-Reporting-3"
-    # "Block-Windows-Error-Reporting-4"="v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\DWWIN.exe|Name=Block-Windows-Error-Reporting-4|Desc=Block-Windows-Error-Reporting-4"
-    # "Block-Windows-Error-Reporting-5"="v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\SysWOW64\svchost.exe|Svc=WerSvc|Name=Block-Unified-Telemetry-Client|Desc=Block-Windows-Error-Reporting-5|EmbedCtxt=WerSvc|"
-    # "Block-Windows-Error-Reporting-6"="v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\SysWOW64\WerFaultSecure.exe|Name=Block-Windows-Error-Reporting-2|Desc=Block-Windows-Error-Reporting-6"
-    # "Block-Windows-Error-Reporting-7"="v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\SysWOW64\dmclient.exe|Name=Block-Windows-Error-Reporting-3|Desc=Block-Windows-Error-Reporting-7"
-    # "Block-Windows-Error-Reporting-8"="v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\SysWOW64\DWWIN.exe|Name=Block-Windows-Error-Reporting-4|Desc=Block-Windows-Error-Reporting-8"
   - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules', value: 'Block-Unified-Telemetry-Client', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=DiagTrack|Name=Block-Unified-Telemetry-Client|Desc=Block-Unified-Telemetry-Client|EmbedCtxt=DiagTrack|'}
   - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules', value: 'Block-Windows-Error-Reporting', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=WerSvc|Name=Block-Unified-Telemetry-Client|Desc=Block-Windows-Error-Reporting|EmbedCtxt=WerSvc|'}
-  # Breaks Xbox
-  # - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules', value: 'Block-Windows-Insider', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=wisvc|Name=Block-Windows-Insider|Desc=Block-Windows-Insider|EmbedCtxt=wisvc|'}

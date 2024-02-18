@@ -1,0 +1,45 @@
+---
+title: Tweak
+description: Tweak configuration
+privilege: TrustedInstaller
+actions: 
+  - !writeStatus: {status: "Tweaking"}
+features:
+  - sw\tweaks\add-hashes-checking-submenu-in-context-menu.yml
+  - sw\tweaks\add-take-ownership-in-context-menu.yml
+  - sw\tweaks\bypass-requirements.yml
+  - sw\tweaks\config-info.yml
+  - sw\tweaks\configure-crash-control.yml
+  - sw\tweaks\configure-deprovisioned-apps.yml
+  - sw\tweaks\configure-explorer-settings.yml
+  - sw\tweaks\configure-ifeo.yml
+  - sw\tweaks\configure-internet-explorer.yml
+  - sw\tweaks\configure-kernel.yml
+  - sw\tweaks\configure-logon.yml
+  - sw\tweaks\configure-microsoft-store.yml
+  - sw\tweaks\configure-multimedia.yml
+  - sw\tweaks\configure-oobe.yml
+  - sw\tweaks\configure-power-control.yml
+  - sw\tweaks\configure-privacy.yml
+  - sw\tweaks\configure-content-delivery.yml
+  - sw\tweaks\configure-search-and-cortana.yml
+  - sw\tweaks\configure-security.yml
+  - sw\tweaks\configure-start-menu-and-taskbar-notifications.yml
+  - sw\tweaks\configure-win32priorityseparation.yml
+  - sw\tweaks\configure-windows-settings.yml
+  - sw\tweaks\configure-windows-update-and-install.yml
+  - sw\tweaks\disable-automatic-maintenance.yml
+  - sw\tweaks\disable-disk-checking.yml
+  - sw\tweaks\disable-ease-of-access-features.yml
+  - sw\tweaks\disable-installing-teams.yml
+  - sw\tweaks\disable-logging.yml
+  - sw\tweaks\disable-scheduled-tasks.yml
+  - sw\tweaks\disable-prefetcher-superfetch-and-readyboost.yml
+  - sw\tweaks\disable-system-restore-pre-defined-config.yml
+  - sw\tweaks\disable-user-account-control-uac.yml
+  - sw\tweaks\enable-audio-communications-do-nothing.yml
+  - sw\tweaks\fixes.yml
+  - sw\tweaks\make-msi-installer-work-in-safe-mode.yml
+  - sw\tweaks\mouse-tweaks.yml
+  - sw\tweaks\old-rightclick-menu.yml
+  - sw\tweaks\restore-windows-photo-viewer-all-users.yml

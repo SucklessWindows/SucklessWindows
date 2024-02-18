@@ -1,0 +1,13 @@
+---
+title: disable-user-account-control-uac
+description: disable-user-account-control-uac
+privilege: TrustedInstaller
+actions:
+
+    # ------> https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-gpsb/12867da0-2e4e-4a4f-9dc4-84a7f354c8d9
+    # ------> https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/user-account-control-group-policy-and-registry-key-settings
+    # === Run all administrators in Admin Approval Mode - Disabled
+    # ------> Main switch for User Account Control (UAC)
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'EnableLUA', type: REG_DWORD, data: '0', option: "disable-uac"}
+    # ------> Re-enable User Account Control (UAC)
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'EnableLUA', type: REG_DWORD, data: '1', option: "enable-uac"}
