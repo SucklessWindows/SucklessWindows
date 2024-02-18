@@ -1,0 +1,52 @@
+---
+title: Config Visual Effects
+description: Config Visual Effects like Animations, Transparent, ... to make Windows snappier
+privilege: TrustedInstaller
+actions:
+  - !registryValue:
+    path: 'HKCU\Control Panel\Desktop'
+    value: 'FontSmoothing'
+    data: '2'
+    type: REG_SZ
+
+  - !registryValue:
+    path: 'HKCU\Control Panel\Desktop\WindowMetrics'
+    value: 'MinAnimate'
+    data: '0'
+    type: REG_SZ
+    option: "disable-effects"
+
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+    value: 'EnableTransparency'
+    data: '0'
+    type: REG_SZ
+    option: "disable-effects"
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'TaskbarAnimations'
+    data: '0'
+    type: REG_DWORD
+    option: "disable-effects"
+
+  - !registryValue:
+    path: 'HKCU\Control Panel\Desktop'
+    value: 'DragFullWindows'
+    data: '0'
+    type: REG_SZ
+    option: "disable-effects"
+
+  - !registryValue:
+    path: 'HKCU\Control Panel\Desktop'
+    value: 'UserPreferencesMask'
+    data: '9012038010000000'
+    type: REG_BINARY
+    option: "disable-effects"
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\DWM'
+    value: 'AlwaysHibernateThumbnails'
+    data: '0'
+    type: REG_DWORD
+    option: "disable-effects"

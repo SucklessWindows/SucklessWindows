@@ -6,10 +6,7 @@ actions: []
 features:
   - sw\start.yml
   - sw\software.yml
-  - sw\services.yml
   - sw\components.yml
   - sw\appx.yml
   - sw\tweak.yml
-  - sw\theme.yml
-  - sw\security-maintenance.yml
   - sw\config.yml
