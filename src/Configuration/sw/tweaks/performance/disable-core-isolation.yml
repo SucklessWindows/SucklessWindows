@@ -1,0 +1,11 @@
+---
+title: Disable Core Isolation
+description: Disables Core Isolation (VBS) based on the user's options
+privilege: TrustedInstaller
+option: 'disable-vbs'
+actions:
+  - !run:
+    exe: "PowerShell"
+    args: '-NoP -ExecutionPolicy Bypass -File config-vbs.ps1 -DisableAllVBS'
+    wait: true
+    exeDir: true
