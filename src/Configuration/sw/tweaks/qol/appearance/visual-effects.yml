@@ -21,7 +21,6 @@ actions:
     value: 'EnableTransparency'
     data: '0'
     type: REG_SZ
-    option: "disable-effects"
 
   - !registryValue:
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
