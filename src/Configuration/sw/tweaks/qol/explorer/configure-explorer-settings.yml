@@ -96,6 +96,8 @@ actions:
   - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarDa', type: REG_DWORD, data: '0'}
     # ------> since 22621.1343 builds, Windows 11 tries to reinstall WebExperience even if it is removed and stored in deprovisioned apps list
   - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Dsh', value: 'AllowNewsAndInterests', type: REG_DWORD, data: '0'}
+    # Align taskbar to Left
+  - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAl', type: REG_DWORD, data: '0'}
     # Disable Search button
   - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Search', value: 'SearchboxTaskbarMode', type: REG_DWORD, data: '0'}
     # Enable 'Show hidden icon' button
