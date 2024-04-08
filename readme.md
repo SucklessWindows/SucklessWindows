@@ -60,7 +60,5 @@ git clone https://github.com/SucklessWindows/SucklessWindows
 - [p3nguin-kun](https://github.com/p3nguin-kun) (of course!)
 - [Some cool contributors](https://github.com/SucklessWindows/SucklessWindows/graphs/contributors)
 
-# Contributions
-1. Fork this project.
-2. Edit files
-3. Make a pull request.
+# License
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
