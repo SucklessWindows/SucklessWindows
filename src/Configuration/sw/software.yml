@@ -128,6 +128,13 @@ actions:
     weight: 150
     option: "utils-7zip"
 
+  # Bulk Crap Uninstaller
+  - !writeStatus: {status: 'Installing BCUninstaller', option: "utils-bcuninstaller"}
+  - !cmd:
+    command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums bulk-crap-uninstaller'
+    weight: 150
+    option: "utils-bcuninstaller"
+
   # Notepad++
   - !writeStatus: {status: 'Installing Notepad++', option: "utils-npp"}
   - !cmd:
