@@ -33,11 +33,11 @@ actions:
   - !run: {exe: 'firefox.cmd', exeDir: true, weight: 20, option: "browser-firefox"}
 
   # Librewolf
-  - !writeStatus: {status: 'Installing LibreWolf', option: "browser-librewolf"}
+  - !writeStatus: {status: 'Installing Google Chrome', option: "browser-chrome"}
   - !cmd:
-     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums librewolf'
+     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums googlechrome'
      weight: 150
-     option: "browser-librewolf"
+     option: "browser-chrome"
 
 # Mail
   # Thunderbird
