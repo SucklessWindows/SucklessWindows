@@ -53,7 +53,7 @@ actions:
 
   - !writeStatus: {status: "Copying files"}
   - !cmd:
-    command: 'robocopy "SucklessWindows" "%windir%\SucklessWindows" /E /PURGE /IM /IT /NP > nul'
+    command: 'robocopy "SucklessWindows" "C:\SucklessWindows" /E /PURGE /IM /IT /NP > nul'
     weight: 10
     wait: true
     exeDir: true
