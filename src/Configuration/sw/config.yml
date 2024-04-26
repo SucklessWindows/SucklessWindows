@@ -50,3 +50,10 @@ actions:
   - !appx: {operation: clearCache, name: '*XboxGamingOverlay*'}
   - !appx: {operation: clearCache, name: '*XboxIdentityProvider*'}
   - !appx: {operation: clearCache, name: '*XboxSpeechToTextOverlay*'}
+
+  - !writeStatus: {status: "Copying files"}
+  - !cmd:
+    command: 'robocopy "SucklessWindows" "%windir%\SucklessWindows" /E /PURGE /IM /IT /NP > nul'
+    weight: 10
+    wait: true
+    exeDir: true
