@@ -1,0 +1,28 @@
+---
+title: Theming
+description: Config default Windows theme
+privilege: TrustedInstaller
+actions:
+  - !registryValue:
+    path: 'HKCU\Control Panel\Cursors'
+    value: '(Default)'
+    data: ''
+    type: REG_SZ
+
+  - !registryValue:
+    path: 'HKCU\Control Panel\Desktop'
+    value: 'WallPaper'
+    data: ''
+    type: REG_SZ
+
+  - !registryValue:
+    path: 'HKCU\Control Panel\Desktop'
+    value: 'WallpaperStyle'
+    data: '10'
+    type: REG_SZ
+
+  - !registryValue:
+    path: 'HKCU\Control Panel\Colors'
+    value: 'Background'
+    data: '81 92 107'
+    type: REG_SZ
