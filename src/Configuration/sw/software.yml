@@ -32,7 +32,7 @@ actions:
   - !writeStatus: {status: 'Configuring Firefox', option: "browser-firefox"}
   - !run: {exe: 'firefox.cmd', exeDir: true, weight: 20, option: "browser-firefox"}
 
-  # Librewolf
+  # Chrome
   - !writeStatus: {status: 'Installing Google Chrome', option: "browser-chrome"}
   - !cmd:
      command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums googlechrome'
@@ -107,14 +107,14 @@ actions:
     option: "productivity-vscode"
 
   # GIMP
-  - !writeStatus: {status: 'Installing Visual Studio Code', option: "productivity-gimp"}
+  - !writeStatus: {status: 'Installing Gimp', option: "productivity-gimp"}
   - !cmd:
     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums gimp'
     weight: 150
     option: "productivity-gimp"
 
   # OBS Studio
-  - !writeStatus: {status: 'Installing Visual Studio Code', option: "productivity-vscode"}
+  - !writeStatus: {status: 'Installing OBS Studio', option: "productivity-obs"}
   - !cmd:
     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums obs-studio'
     weight: 150
