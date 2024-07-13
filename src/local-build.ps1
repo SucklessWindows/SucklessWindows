@@ -11,7 +11,7 @@ param (
 	[string]$FileName = "sw-test"
 )
 
-$removals | % { Set-Variable -Name "remove$_" -Value $true }
+$removals | ForEach-Object { Set-Variable -Name "remove$_" -Value $true }
 
 # Function to convert paths for convienience, needed for Linux/macOS
 function Seperator {
