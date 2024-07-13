@@ -4,6 +4,12 @@ description: Installs preferred softwares
 privilege: TrustedInstaller
 actions:
 
+# Install Visual AIO Repack - https://github.com/abbodi1406/vcredist (unavailable on chocolatey)
+  - !writeStatus: {status: 'Installing Visual AIO'}
+  - !powershell:
+    command: 'New-Item -ItemType Directory -Path "$env:Temp\Visual AIO" | Out-Null; Invoke-WebRequest https://github.com/abbodi1406/vcredist/releases/latest/download/VisualCppRedist_AIO_x86_x64.exe -OutFile "$env:Temp\Visual AIO\VisualCppRedist_AIO_x86_x64.exe" ; Start-Process "$env:Temp\Visual AIO\VisualCppRedist_AIO_x86_x64.exe" "/aiA /aiR" -Wait ; Remove-Item -Recurse -Force "$env:Temp\Visual AIO"'
+    weight: 150
+
   - !writeStatus: {status: 'Installing Chocolatey'}
   - !powerShell:
     command: 'Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(''https://community.chocolatey.org/install.ps1''))'
