@@ -148,6 +148,8 @@ while ($true) { Get-Content -Wait -LiteralPath $a -EA 0 | Write-Output; Start-Sl
 	}
 
 	Write-Host "Built successfully! Path: `"$apbxPath`"" -ForegroundColor Green
+	Write-Host "Press any key to exit..." -NoNewline
+	$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 	if (!$DontOpenPbLocation) {
 		if ($IsLinux -or $IsMacOS) {
 			Write-Warning "Can't open to APBX directory as the system isn't Windows."
