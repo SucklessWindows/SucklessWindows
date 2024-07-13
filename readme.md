@@ -2,6 +2,13 @@
 An open and lightweight modification to Windows, designed to optimize performance, privacy and usability.
 > note: SucklessWindows is not related to [suckless.org](https://suckless.org)
 
+<p align="center">
+  <img src="https://img.shields.io/github/release/SucklessWindows/SucklessWindows">
+  <img src="https://img.shields.io/github/downloads/SucklessWindows/SucklessWindows/total">
+  <img src="https://img.shields.io/github/license/SucklessWindows/SucklessWindows">
+  <img src="https://img.shields.io/github/stars/SucklessWindows/SucklessWindows">
+</p>
+
 <div align="center">
   <a href="#-installation">🔧 Installation</a>  • 
   <a href="#-why-suckless-windows">🤔 Why Suckless Windows</a>  • 
