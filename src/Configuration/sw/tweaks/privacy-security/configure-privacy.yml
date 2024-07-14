@@ -47,6 +47,8 @@ actions:
   - !registryValue: {path: 'HKCU\Software\Policies\Microsoft\Windows\CloudContent', value: 'DisableWindowsSpotlightOnActionCenter', type: REG_DWORD, data: '1'}
     # === Turn off Windows Spotlight on Settings - Enabled
   - !registryValue: {path: 'HKCU\Software\Policies\Microsoft\Windows\CloudContent', value: 'DisableWindowsSpotlightOnSettings', type: REG_DWORD, data: '1'}
+    # === Turn off cloud optimized content - Enabled
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableCloudOptimizedContent', type: REG_DWORD, data: '1'}    
     # =================
     # === Messaging ===
     # =================
@@ -90,7 +92,9 @@ actions:
     # === Allow device name to be sent in Windows diagnostic data - Disabled
   - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection', value: 'AllowDeviceNameInTelemetry', type: REG_DWORD, data: '0'}
     # === Allow Telemetry - Disabled
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection', value: 'AllowTelemetry', data: '0', type: REG_DWORD}
+    # ------> Can be found in (Configure_Windows_Settings.reg)
+    # [HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\DataCollection]
+    # "AllowTelemetry"=dword:00000000
     # === Configure Authenticated Proxy usage for the Connected User Experience and Telemetry service - Disabled
   - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection', value: 'DisableEnterpriseAuthProxy', type: REG_DWORD, data: '1'}
     # === Configure collection of browsing data for Desktop Analytics - Do not allow sending intranet or internet history (Disabled)
@@ -224,3 +228,5 @@ actions:
     # Breaks Xbox
   - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules', value: 'Block-Unified-Telemetry-Client', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=DiagTrack|Name=Block-Unified-Telemetry-Client|Desc=Block-Unified-Telemetry-Client|EmbedCtxt=DiagTrack|'}
   - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules', value: 'Block-Windows-Error-Reporting', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=WerSvc|Name=Block-Unified-Telemetry-Client|Desc=Block-Windows-Error-Reporting|EmbedCtxt=WerSvc|'}
+  # Breaks Xbox
+  # - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules', value: 'Block-Windows-Insider', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=wisvc|Name=Block-Windows-Insider|Desc=Block-Windows-Insider|EmbedCtxt=wisvc|'}

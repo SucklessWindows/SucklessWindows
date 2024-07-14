@@ -1,43 +1,62 @@
 $ErrorActionPreference = 'SilentlyContinue'
+# As cleanmgr has multiple processes, there's no point in making the window hidden as it won't apply
+function Invoke-SWDiskCleanup {
+	# Kill running cleanmgr instances, as they will prevent new cleanmgr from starting
+	Get-Process -Name cleanmgr -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+	# Disk Cleanup preset
+	# 2 = enabled
+	# 0 = disabled
+	$baseKey = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches'
+	$regValues = @{
+        "Active Setup Temp Folders"      = 2
+        "BranchCache"                    = 2
+        "D3D Shader Cache"               = 2
+        "Delivery Optimization Files"    = 2
+        "Device Driver Packages"         = 2
+        "Diagnostic Data Viewer database files" = 2
+        "Downloaded Program Files"       = 2
+        "Internet Cache Files"           = 2
+        "Language Pack"                  = 0
+        "Offline Pages Files"            = 2
+        "Old ChkDsk Files"               = 2
+        "Recycle Bin"                    = 0
+        "RetailDemo Offline Content"     = 2
+        "Setup Log Files"                = 2
+        "System error memory dump files" = 2
+        "System error minidump files"    = 2
+        "Temporary Setup Files"          = 2
+        "Temporary Sync Files"           = 2
+        "Update Cleanup"                 = 2
+        "Upgrade Discarded Files"        = 2
+        "User file versions"             = 2
+        "Windows Defender"               = 2
+        "Windows Error Reporting Files"  = 2
+        "Windows Reset Log Files"        = 2
+        "Windows Upgrade Log Files"      = 2    
+	}
+	foreach ($entry in $regValues.GetEnumerator()) {
+		$key = "$baseKey\$($entry.Key)"
 
-Write-Host "Using Disk Cleanup with custom configuration"
-$volumeCache = @{
-    "Active Setup Temp Folders" = 2
-    "BranchCache" = 2
-    "Delivery Optimization Files" = 2
-    "Device Driver Packages" = 2
-    # "Diagnostic Data Viewer database files" = 2
-    "Downloaded Program Files" = 2
-    "Internet Cache Files" = 2
-    "Language Pack" = 2
-    "Offline Pages Files" = 2
-    "Old ChkDsk Files" = 2
-    # "RetailDemo Offline Content" = 2
-    "Setup Log Files" = 2
-    "System error memory dump files" = 2
-    "System error minidump files" = 2
-    "Temporary Setup Files" = 2
-    "Temporary Sync Files" = 2
-    "Update Cleanup" = 2
-    "Upgrade Discarded Files" = 2
-    "User file versions" = 2
-    "Windows Defender" = 2
-    "Windows Error Reporting Files" = 2
-    "Windows Reset Log Files" = 2
-    "Windows Upgrade Log Files" = 2
+		if (!(Test-Path $key)) {
+			Write-Output "'$key' not found, not configuring it."
+		} else {
+			Set-ItemProperty -Path "$baseKey\$($entry.Key)" -Name 'StateFlags0064' -Value $entry.Value -Type DWORD
+		}
+	}
+
+	# Run preset 64 (0-65535)
+	Start-Process -FilePath "cleanmgr.exe" -ArgumentList "/sagerun:64" 2>&1 | Out-Null
 }
 
-$registryPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches"
-
-foreach ($item in $volumeCache.GetEnumerator()) {
-    $keyPath = Join-Path $registryPath $item.Key
-    if (Test-Path $keyPath) {
-        
-        New-ItemProperty -Path $keyPath -Name StateFlags1337 -Value $item.Value -PropertyType DWord | Out-Null
+# Check for other installations of Windows
+# If so, don't cleanup as it will also cleanup other drives
+$excludedDrive = "C"
+$drives = Get-PSDrive -PSProvider 'FileSystem' | Where-Object { $_.Name -ne $excludedDrive }
+foreach ($drive in $drives) {
+    if (!(Test-Path -Path $(Join-Path -Path $drive.Root -ChildPath 'Windows') -PathType Container)) {
+        Invoke-SWDiskCleanup
     }
 }
-
-Start-Process -FilePath "$env:SystemRoot\system32\cleanmgr.exe" -ArgumentList "/sagerun:1337" -Wait:$false
 
 Write-Host "Cleaning up Event Logs"
 Get-EventLog -LogName * | ForEach-Object { Clear-EventLog $_.Log }
@@ -55,10 +74,16 @@ Write-Host "Cleaning up leftovers"
 $foldersToRemove = @(
     "CbsTemp",
     "Logs",
-    "SoftwareDistribution"
+    "SoftwareDistribution",
     "System32\LogFiles",
-    "System32\sru"
+    "System32\LogFiles\WMI,"
+    "System32\SleepStudy",
+    "System32\sru",
+    "System32\WDI\LogFiles",
+    "System32\winevt\Logs",
+    "SystemTemp",
     "Temp"
+
     # "WinSxS\Backup"
     # "Panther",
     # "Prefetch"
@@ -86,3 +111,8 @@ Start-ScheduledTask -TaskPath "\Microsoft\Windows\DiskCleanup\" -TaskName "Silen
 
 # Write-Host "Cleaning up the WinSxS Components"
 # DISM /Online /Cleanup-Image /StartComponentCleanup
+
+$edgeUpdatePath = ${env:ProgramFiles(x86)} + "\Microsoft\EdgeUpdate\Download"
+if (Test-Path -Path $edgeUpdatePath) {
+    Remove-Item -Path $edgeUpdatePath -Force -Recurse | Out-Null
+}

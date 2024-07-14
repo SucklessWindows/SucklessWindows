@@ -4,14 +4,15 @@ description: Removal and configuration of services
 privilege: TrustedInstaller
 actions:
   
+  - !writeStatus: {status: "Configuring services"}
     # === Beep - Disabled
-  - !service: {name: 'Beep', operation: change, startup: 4}
+  # - !service: {name: 'Beep', operation: change, startup: 4}
     # === GraphicsPerfSvc - Disabled
-  - !service: {name: 'GraphicsPerfSvc', operation: change, startup: 4}
+  # - !service: {name: 'GraphicsPerfSvc', operation: change, startup: 4}
     # === Desktop Activity Moderator Driver - Disabled
   - !service: {name: 'dam', operation: change, startup: 4}
     # === Background Activity Moderator Driver - Disabled
-  - !service: {name: 'bam', operation: change, startup: 4}
+  # - !service: {name: 'bam', operation: change, startup: 4}
     # === GPU Energy Driver - Disabled
   - !service: {name: 'GpuEnergyDrv', operation: change, startup: 4}
     # === NetBT - Disabled
@@ -20,7 +21,7 @@ actions:
   - !service: {name: 'Telemetry', operation: change, startup: 4}
 
     # === Windows Network Data Usage Monitoring Driver - Disabled
-  - !service: {name: 'Ndu', operation: change, startup: 4}
+  # - !service: {name: 'Ndu', operation: change, startup: 4}
     # === Microsoft (R) Diagnostics Hub Standard Collector Service - Disabled
   - !service: {name: 'diagnosticshub.standardcollector.service', operation: change, startup: 4}
     # === Windows Error Reporting Service - Disabled
@@ -47,11 +48,6 @@ actions:
   # == Windows Event Collector - Disabled
   - !service: {name: 'Wecsvc', operation: change, startup: 4} 
 
-  # == Other
-  - !service: {name: 'lfsvc', operation: change, startup: 4}
-  - !service: {name: 'MapsBroker', operation: change, startup: 4}
-  - !service: {name: 'OneSyncSvc', operation: change, startup: 4}
-  - !service: {name: 'TrkWks', operation: change, startup: 4}
-  - !service: {name: 'PcaSvc', operation: change, startup: 4}
-  - !service: {name: 'DiagTrack', operation: change, startup: 4}
-  - !service: {name: 'WSearch', operation: change, startup: 4}
+  # == UCPD velocity - Disabled
+  - !service: {name: 'UCPD', operation: change, startup: 4}
+  - !powerShell: {command: "Disable-ScheduledTask -TaskPath '\\Microsoft\\Windows\\AppxDeploymentClient' -TaskName 'UCPD velocity'"}

@@ -4,6 +4,12 @@ description: Installs preferred softwares
 privilege: TrustedInstaller
 actions:
 
+# Install Visual AIO Repack - https://github.com/abbodi1406/vcredist (unavailable on chocolatey)
+  - !writeStatus: {status: 'Installing Visual AIO'}
+  - !powerShell:
+    command: 'New-Item -ItemType Directory -Path "$env:Temp\Visual AIO" | Out-Null; Invoke-WebRequest https://github.com/abbodi1406/vcredist/releases/latest/download/VisualCppRedist_AIO_x86_x64.exe -OutFile "$env:Temp\Visual AIO\VisualCppRedist_AIO_x86_x64.exe" ; Start-Process "$env:Temp\Visual AIO\VisualCppRedist_AIO_x86_x64.exe" "/aiA /aiR" -Wait ; Remove-Item -Recurse -Force "$env:Temp\Visual AIO"'
+    weight: 150
+
   - !writeStatus: {status: 'Installing Chocolatey'}
   - !powerShell:
     command: 'Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(''https://community.chocolatey.org/install.ps1''))'
@@ -32,7 +38,7 @@ actions:
   - !writeStatus: {status: 'Configuring Firefox', option: "browser-firefox"}
   - !run: {exe: 'firefox.cmd', exeDir: true, weight: 20, option: "browser-firefox"}
 
-  # Librewolf
+  # Chrome
   - !writeStatus: {status: 'Installing Google Chrome', option: "browser-chrome"}
   - !cmd:
      command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums googlechrome'
@@ -107,14 +113,14 @@ actions:
     option: "productivity-vscode"
 
   # GIMP
-  - !writeStatus: {status: 'Installing Visual Studio Code', option: "productivity-gimp"}
+  - !writeStatus: {status: 'Installing Gimp', option: "productivity-gimp"}
   - !cmd:
     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums gimp'
     weight: 150
     option: "productivity-gimp"
 
   # OBS Studio
-  - !writeStatus: {status: 'Installing Visual Studio Code', option: "productivity-vscode"}
+  - !writeStatus: {status: 'Installing OBS Studio', option: "productivity-obs"}
   - !cmd:
     command: '"%ProgramData%\chocolatey\bin\choco.exe" install -y --force --allow-empty-checksums obs-studio'
     weight: 150
