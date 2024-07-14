@@ -5,7 +5,7 @@ privilege: TrustedInstaller
 actions:
   
   - !writeStatus: {status: "Removing Appx Packages"}
-  - !appx: {name: '*Disney*', type: family, weight: 10}
+#  - !appx: {name: '*Disney*', type: family, weight: 10}
 
   - !appx: {name: '*microsoft.microsoftedge.stable*', type: family, ignoreErrors: true, weight: 10, option: "remove-edge"}
   - !appx: {name: '*Microsoft.MicrosoftEdge*', type: family, ignoreErrors: true, weight: 10, option: "remove-edge"}
@@ -120,9 +120,6 @@ actions:
   - !appx: {name: '*Microsoft.Office.Word*', type: family, weight: 10}
   - !appx: {name: '*Microsoft.Office.OneNote*', type: family, weight: 10}
 
-  - !appx: {name: '*OutlookForWindows*', type: family, weight: 10}
-  - !appx: {name: '*OutlookPWA*', type: family, weight: 10}
-
   - !writeStatus: {status: "Removing 3DViewer"}
   - !appx: {name: '*Microsoft.Microsoft3DViewer*', type: family, weight: 10}
 
@@ -143,6 +140,9 @@ actions:
   - !powerShell: {command: 'Get-AppxPackage *MSTeams* | Remove-AppxPackage', runas: currentUserElevated}
   - !appx: {name: '*MSTeams*', type: family, weight: 10}
 
+  - !writeStatus: {status: "Removing FlipGrid"}
+  - !appx: {name: '*Flipgrid*', type: family, weight: 10}
+
   - !writeStatus: {status: "Removing Banners"}
     # MicrosoftWindows.Client.CBS_cw5n1h2txyewy!
   # - !appx: {name: '*Global.ValueBanner*', type: app, unregister: true, weight: 50}
@@ -150,25 +150,31 @@ actions:
   #   # MicrosoftWindows.Client.Core_cw5n1h2txyewy
   # - !appx: {name: '*Global.BackupBanner*', type: app, unregister: true, weight: 50}
 
+  # OPTIONS:
+    # DevHome 23H2+
   - !writeStatus: {status: "Removing Dev Home"}
-  - !appx: {name: '*DevHome*', type: family, option: "remove-appx-devhome", weight: 10}
-  
-  # - !writeStatus: {status: "Removing Windows Backup"}
-  # - !appx: {name: '*WindowsBackup*', type: app, unregister: true, option: "remove-appx-wbackup", weight: 10}
+  - !appx: {name: '*DevHome*', type: family, weight: 10, option: "remove-appx-devhome"}
 
-  - !writeStatus: {status: "Removing FlipGrid"}
-  - !appx: {name: '*Flipgrid*', type: family, weight: 10}
-
+    # Xbox Apps
   - !writeStatus: {status: "Removing Xbox Apps", option: "remove-appx-xbox"}
   - !appx: {name: '*Microsoft.Xbox*', type: family, weight: 10, option: "remove-appx-xbox"}
   - !appx: {name: '*Microsoft.GamingApp*', type: family, option: "remove-appx-xbox"}
-  # Xbox Console Companion is deprecated
-  - !appx: {name: '*Microsoft.XboxApp*', type: family} 
+    # Xbox Console Companion is deprecated
+  - !appx: {name: '*Microsoft.XboxApp*', type: family, option: "remove-appx-xbox"} 
 
-  
+    # Your Phone
   - !writeStatus: {status: "Removing Your Phone", option: "remove-appx-yourphone"}
   - !appx: {name: '*Microsoft.YourPhone*', type: family, weight: 10, option: "remove-appx-yourphone"}
   - !appx: {name: '*MicrosoftWindows.CrossDevice*', type: family, weight: 10, option: "remove-appx-yourphone"}
 
+    # Recall 24H2 but will be available only on CopilotPC+ soon
   - !writeStatus: {status: "Removing Recall", option: "remove-appx-recall"}
   - !appx: {name: '*MicrosoftWindows.Client.AIX*', type: family, weight: 10, option: "remove-appx-recall"}
+
+    # Outlook
+  - !writeStatus: {status: "Removing Outlook (New)", option: "remove-appx-outlook"}
+  - !appx: {name: '*OutlookForWindows*', type: family, weight: 10, option: "remove-appx-outlook"}
+  - !appx: {name: '*OutlookPWA*', type: family, weight: 10, option: "remove-appx-outlook"}
+
+  # - !writeStatus: {status: "Removing Windows Backup"}
+  # - !appx: {name: '*WindowsBackup*', type: app, unregister: true, option: "remove-appx-wbackup", weight: 10}
