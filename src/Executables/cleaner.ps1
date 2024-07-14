@@ -10,23 +10,32 @@ function Invoke-SWDiskCleanup {
 	$regValues = @{
         "Active Setup Temp Folders"      = 2
         "BranchCache"                    = 2
+        "Compress Old Files"             = 2
         "D3D Shader Cache"               = 2
         "Delivery Optimization Files"    = 2
         "Device Driver Packages"         = 2
         "Diagnostic Data Viewer database files" = 2
         "Downloaded Program Files"       = 2
+        "Feedback Hub Archive log files" = 2
         "Internet Cache Files"           = 2
         "Language Pack"                  = 0
         "Offline Pages Files"            = 2
         "Old ChkDsk Files"               = 2
+        "Offline Files"                  = 2
+        "Previous Installations"         = 2
         "Recycle Bin"                    = 0
         "RetailDemo Offline Content"     = 2
         "Setup Log Files"                = 2
         "System error memory dump files" = 2
         "System error minidump files"    = 2
+        "Thumbnail Cache"                = 2
+        "Temporary Files"                = 2
+        "Temporary Offline Files"        = 2
+        "Temporary Internet Files"       = 2
         "Temporary Setup Files"          = 2
         "Temporary Sync Files"           = 2
         "Update Cleanup"                 = 2
+        "Update package Backup Files"    = 2
         "Upgrade Discarded Files"        = 2
         "User file versions"             = 2
         "Windows Defender"               = 2
@@ -40,12 +49,12 @@ function Invoke-SWDiskCleanup {
 		if (!(Test-Path $key)) {
 			Write-Output "'$key' not found, not configuring it."
 		} else {
-			Set-ItemProperty -Path "$baseKey\$($entry.Key)" -Name 'StateFlags0064' -Value $entry.Value -Type DWORD
+			Set-ItemProperty -Path "$baseKey\$($entry.Key)" -Name 'StateFlags2408' -Value $entry.Value -Type DWORD
 		}
 	}
 
 	# Run preset 64 (0-65535)
-	Start-Process -FilePath "cleanmgr.exe" -ArgumentList "/sagerun:64" 2>&1 | Out-Null
+	Start-Process -FilePath "cleanmgr.exe" -ArgumentList "/sagerun:2408 /Autoclean" 2>&1 | Out-Null
 }
 
 # Check for other installations of Windows
