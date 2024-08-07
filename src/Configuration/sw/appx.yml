@@ -87,6 +87,7 @@ actions:
   
   - !writeStatus: {status: "Removing QuickAssist"}
   - !appx: {name: '*MicrosoftCorporationII.QuickAssist*', type: family, weight: 10}
+  
   - !writeStatus: {status: "Removing MS Family"}
   - !appx: {name: '*MicrosoftCorporationII.MicrosoftFamily*', type: family, weight: 10}
   
@@ -141,7 +142,37 @@ actions:
   - !appx: {name: '*MSTeams*', type: family, weight: 10}
 
   - !writeStatus: {status: "Removing FlipGrid"}
-  - !appx: {name: '*Flipgrid*', type: family, weight: 10}
+  - !appx: {name: '*Flipgrid*', type: family, weight: 10} #
+
+  - !writeStatus: {status: "Bing Finance"}
+  - !appx: {name: '*Microsoft.BingFinance*', type: family, weight: 10} #
+
+  - !writeStatus: {status: "Removing Bing Sports"}
+  - !appx: {name: '*Microsoft.BingSports*', type: family, weight: 10} #
+
+  - !writeStatus: {status: "Removing Bing Translator"}
+  - !appx: {name: '*Microsoft.BingTranslator*', type: family, weight: 10}# 
+
+  - !writeStatus: {status: "Removing Bing Food And Drink"}
+  - !appx: {name: '*Microsoft.BingFoodAndDrink*', type: family, weight: 10}
+
+  - !writeStatus: {status: "Removing Bing Health And Fitness"}
+  - !appx: {name: '*Microsoft.BingHealthAndFitness*', type: family, weight: 10}
+
+  - !writeStatus: {status: "Removing Bing Travel"}
+  - !appx: {name: '*Microsoft.BingTravel*', type: family, weight: 10}
+
+  - !writeStatus: {status: "Removing News"}
+  - !appx: {name: '*Microsoft.News*', type: family, weight: 10}
+
+  - !writeStatus: {status: "Removing Windows Phone"}
+  - !appx: {name: '*Microsoft.WindowsPhone*', type: family, weight: 10}
+
+  - !writeStatus: {status: "Removing Microsoft.Advertising.Xaml"}
+  - !appx: {name: '*Microsoft.Advertising.Xaml*', type: family, weight: 10}
+
+  - !writeStatus: {status: "Removing Hotspot Shield"}
+  - !appx: {name: '*HotspotShieldFreeVPN*', type: family, weight: 10}
 
   - !writeStatus: {status: "Removing Banners"}
     # MicrosoftWindows.Client.CBS_cw5n1h2txyewy!
