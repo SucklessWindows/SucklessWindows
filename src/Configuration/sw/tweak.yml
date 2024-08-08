@@ -29,7 +29,7 @@ features:
     # =======================
     
     # qol\appearance
-  - sw\tweaks\qol\appearance\theme.yml
+#  - sw\tweaks\qol\appearance\theme.yml
   - sw\tweaks\qol\appearance\visual-effects.yml
   - sw\tweaks\qol\appearance\configure-startmenu-and-taskbar.yml
 
