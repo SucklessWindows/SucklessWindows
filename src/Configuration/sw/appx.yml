@@ -190,6 +190,11 @@ actions:
   - !writeStatus: {status: "Removing Xbox Apps", option: "remove-appx-xbox"}
   - !appx: {name: '*Microsoft.Xbox*', type: family, weight: 10, option: "remove-appx-xbox"}
   - !appx: {name: '*Microsoft.GamingApp*', type: family, option: "remove-appx-xbox"}
+  - !appx: {name: '*Microsoft.Xbox.TCUI*', type: family, option: "remove-appx-xbox"}
+  - !appx: {name: '*Microsoft.XboxGameOverlay*', type: family, option: "remove-appx-xbox"}
+  - !appx: {name: '*Microsoft.XboxGamingOverlay*', type: family, option: "remove-appx-xbox"}
+  - !appx: {name: '*Microsoft.XboxIdentityProvider*', type: family, option: "remove-appx-xbox"}
+  - !appx: {name: '*Microsoft.XboxSpeechToTextOverlay*', type: family, option: "remove-appx-xbox"}
     # Xbox Console Companion is deprecated
   - !appx: {name: '*Microsoft.XboxApp*', type: family, option: "remove-appx-xbox"} 
 
