@@ -64,7 +64,6 @@ git clone https://github.com/SucklessWindows/SucklessWindows
 (New easier packing method comming soon...)
 
 # Credits
-- [p3nguin-kun](https://github.com/p3nguin-kun) (of course!)
 - [Some cool contributors](https://github.com/SucklessWindows/SucklessWindows/graphs/contributors)
 > Big thanks to ReviOS & AtlasOS
 
