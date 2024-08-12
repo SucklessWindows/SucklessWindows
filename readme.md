@@ -1,3 +1,6 @@
+> [!CAUTION]
+> The lastest version of SucklessWindows (4.2024.8) broke due to newest AME Wizard Beta build. If you are an advanced user, please follow [this guild](https://github.com/SucklessWindows/SucklessWindows?tab=readme-ov-file#%EF%B8%8F-build) and help us testing new changes. If any bug occurs, report it in our Discord server.
+
 ![banner](https://github.com/TheOnlyChuon/SW-Fork/blob/main/.github/Uni-SucklessWindows.png?raw=true)
 An open-source and lightweight modification method to Windows, designed to optimize performance, privacy and usability.
 > Friendly note: SucklessWindows is not related to [suckless.org](https://suckless.org)
@@ -12,7 +15,6 @@ An open-source and lightweight modification method to Windows, designed to optim
 <div align="center">
   <a href="#-installation">🔧 Installation</a>  • 
   <a href="#-why-suckless-windows">🤔 Why Suckless Windows</a>  • 
-  <a href="#-support">💝 Support</a> • 
   <a href="https://discord.gg/fxeSRbVfkK">☎️ Discord</a>
 </div>
 
@@ -51,7 +53,7 @@ Suckless Windows applies some modifications to make Windows easier to use. This 
 git clone https://github.com/SucklessWindows/SucklessWindows
 ```
 - Extract file (if you download the zip file)
-- Select all the files and folders within the Playbook folder
+- Select all the files and folders **in the `src` folder** *(not the folder itself)*
 - Right click and select `7-zip > Add to archive...`
 - Name the archive as you please, add `.apbx` as file extension at the end of the name
 - Set archive password to `malte`
