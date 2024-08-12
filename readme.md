@@ -1,6 +1,5 @@
 > [!CAUTION]
-> The lastest version of SucklessWindows (4.2024.8) broke due to newest AME Wizard Beta build.
-> Summer holiday in Vietnam is about to end, and we have to concentrate on preparing for new school year, I'm afraid that new update cant be released in August. So if you are an advanced user, please follow [this guild](https://github.com/SucklessWindows/SucklessWindows?tab=readme-ov-file#%EF%B8%8F-build) and help us testing new changes. Any bug occurs? report it in our Discord server.
+> SucklessWindows (4.2024.8) broke due to lastest AME Wizard Beta build. Summer holiday in Vietnam is about to end, we have to concentrate on preparing for new school year, I'm afraid that the new update can't be released in August. So if you are an advanced user, please follow [this guild](https://github.com/SucklessWindows/SucklessWindows?tab=readme-ov-file#%EF%B8%8F-build) and help us testing new changes. Any bug occurs? Report it in our Discord server 🤗💗!
 
 ![banner](https://github.com/TheOnlyChuon/SW-Fork/blob/main/.github/Uni-SucklessWindows.png?raw=true)
 An open-source and lightweight modification method to Windows, designed to optimize performance, privacy and usability.
