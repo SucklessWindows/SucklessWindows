@@ -44,11 +44,6 @@ Suckless Windows applies some modifications to make Windows easier to use. This 
 - Drag and drop the `sw-x.xxx.abpx` into AME Wizard window.
 - Follow the on-screen instructions from AME Wizard to successfully install your Suckless Windows!
 
-# 💝 Support
-If you like my project and would like to support & appreciate it via donation then I'll gladly accept it.
-- [☕Ko-fi](https://ko-fi.com/p3nguinkun)
-- [💳 PayPal](https://paypal.me/p3nguinkun)
-
 # 🛠️ Build
 - Install [7-zip](https://7-zip.org/)
 - Clone this repo or download the [zip file](https://github.com/SucklessWindows/SucklessWindows/archive/main.zip)
@@ -64,7 +59,6 @@ git clone https://github.com/SucklessWindows/SucklessWindows
 (New easier packing method comming soon...)
 
 # Credits
-- [p3nguin-kun](https://github.com/p3nguin-kun) (of course!)
 - [Some cool contributors](https://github.com/SucklessWindows/SucklessWindows/graphs/contributors)
 > Big thanks to ReviOS & AtlasOS
 
