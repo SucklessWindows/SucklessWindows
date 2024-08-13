@@ -3,9 +3,7 @@ title: add-hashes-checking-submenu-in-context-menu
 description: add hashes checking submenu in context menu
 privilege: TrustedInstaller
 actions:
-    # === Remove previous Hashes submenu if it exists (also delte the one you downloaded on Internet).
-  - !registryKey: {path: 'HKCR\*\shell\hash', operation: delete}
-  - !registryKey: {path: 'HKCR\*\shell\hashes', operation: delete}
+
     # === Add Hashes to the context menu.
   - !registryKey: {path: 'HKCR\*\shell\hashes'}
   - !registryValue: {path: 'HKCR\*\shell\hashes', value: 'MUIVerb', type: REG_SZ, data: 'Hashes'}

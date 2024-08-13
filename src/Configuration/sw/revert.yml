@@ -1,0 +1,15 @@
+---
+title: Rollback Tweaks
+description: Rollback tweaks for those who are applying from previous versions of the playbook
+privilege: TrustedInstaller
+onUpgrade: true
+actions:
+  # === Remove 'Hashes' item if it exists
+  - !registryKey: {path: 'HKCR\*\shell\hash', operation: delete}
+  - !registryKey: {path: 'HKCR\*\shell\hashes', operation: delete}
+
+  # === Remove 'Take Ownership' item if it exists
+  - !registryKey: {path: 'HKCR\*\shell\runas', operation: delete}
+  - !registryKey: {path: 'HKCR\Directory\shell\runas', operation: delete}
+  - !registryKey: {path: 'HKCR\dllfile\shell\runas', operation: delete}
+  - !registryKey: {path: 'HKCR\exefile\shell\runas', operation: delete}

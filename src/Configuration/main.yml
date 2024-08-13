@@ -3,7 +3,9 @@ title: Custom
 description: Custom Suckless Windows configuration
 privilege: Admin
 actions:
+
   - !writeStatus: {status: "Initializing..."}
+  - !task: {path: 'sw\revert.yml'}
   - !task: {path: 'sw\start.yml'}
 
   - !writeStatus: {status: "Installing prefered softwares..."}
