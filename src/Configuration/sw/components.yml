@@ -10,10 +10,10 @@ actions:
   - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge', value: 'NoRemove', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update', value: 'NoRemove', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView', value: 'NoRemove', type: REG_DWORD, data: '0'}
-  - !taskKill: {name: "MicrosoftEdgeUpdate", ignoreErrors: true, option: "remove-edge"}
-  - !taskKill: {name: "msedge", ignoreErrors: true, option: "remove-edge"}
-  - !taskKill: {name: "MicrosoftEdge*", ignoreErrors: true, option: "remove-edge"}
-  - !taskKill: {name: "setup", ignoreErrors: true, pathContains: "\\Edge", option: "remove-edge"}
+  - !taskKill: {name: "MicrosoftEdgeUpdate", errorAction: Ignore, option: "remove-edge"}
+  - !taskKill: {name: "msedge", errorAction: Ignore, option: "remove-edge"}
+  - !taskKill: {name: "MicrosoftEdge*", errorAction: Ignore, option: "remove-edge"}
+  - !taskKill: {name: "setup", errorAction: Ignore, pathContains: "\\Edge", option: "remove-edge"}
   
   - !powerShell: # https://github.com/he3als/EdgeRemover
     command: 'iex """&{$(irm https://raw.githubusercontent.com/he3als/EdgeRemover/main/RemoveEdge.ps1)} -UninstallEdge -RemoveEdgeData -KeepAppX -NonInteractive"""'
@@ -25,9 +25,9 @@ actions:
 
     # OneDrive
   - !writeStatus: {status: "Removing OneDrive", option: "remove-onedrive"}
-  - !taskKill: {name: "OneDriveStandaloneUpdater", ignoreErrors: true, option: "remove-onedrive"}
-  - !taskKill: {name: "OneDriveSetup", ignoreErrors: true, option: "remove-onedrive"}
-  - !taskKill: {name: "OneDrive*", ignoreErrors: true, option: "remove-onedrive"}
+  - !taskKill: {name: "OneDriveStandaloneUpdater", errorAction: Ignore, option: "remove-onedrive"}
+  - !taskKill: {name: "OneDriveSetup", errorAction: Ignore, option: "remove-onedrive"}
+  - !taskKill: {name: "OneDrive*", errorAction: Ignore, option: "remove-onedrive"}
 
   - !run: {exeDir: true, exe: "ONED.cmd", option: "remove-onedrive", weight: 40}
   - !file: {path: "%SystemDrive%\\OneDriveTemp", option: "remove-onedrive"}
