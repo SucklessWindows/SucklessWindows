@@ -4,8 +4,7 @@ description: Removal of APPX packages
 privilege: TrustedInstaller
 actions:
   
-  - !writeStatus: {status: "Removing Appx Packages"}
-#  - !appx: {name: '*Disney*', type: family, weight: 10}
+  - !appx: {name: '*Disney*', type: family, weight: 10}
 
   - !appx: {name: '*microsoft.microsoftedge.stable*', type: family, ignoreErrors: true, weight: 10, option: "remove-edge"}
   - !appx: {name: '*Microsoft.MicrosoftEdge*', type: family, ignoreErrors: true, weight: 10, option: "remove-edge"}

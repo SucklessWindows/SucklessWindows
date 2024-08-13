@@ -4,8 +4,6 @@ description: Remove certain windows components
 privilege: TrustedInstaller
 actions:
 
-  - !writeStatus: {status: "Removing components"}
-
     # Microsoft Edge
   - !writeStatus: {status: "Removing Microsoft Edge", option: "remove-edge"}
   # Allow uninstall of Edge, EdgeUpdate and WebView

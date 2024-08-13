@@ -11,9 +11,6 @@ actions:
   - !taskKill: {name: "ShellExperienceHost", ignoreErrors: true}
   - !taskKill: {name: "backgroundTaskHost", ignoreErrors: true}
   - !taskKill: {name: "Widgets", ignoreErrors: true}
-  
-  
-  - !writeStatus: {status: "Initializing"}
 
     # Prevent annoying notifications during deployment
   - !registryValue:

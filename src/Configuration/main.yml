@@ -1,0 +1,22 @@
+---
+title: Custom
+description: Custom Suckless Windows configuration
+privilege: Admin
+actions:
+  - !writeStatus: {status: "Initializing..."}
+  - !task: {path: 'sw\start.yml'}
+
+  - !writeStatus: {status: "Installing prefered softwares..."}
+  - !task: {path: 'sw\software.yml'}
+
+  - !writeStatus: {status: "Removing components..."}
+  - !task: {path: 'sw\components.yml'}
+
+  - !writeStatus: {status: "Removing Appx Packages..."}
+  - !task: {path: 'sw\appx.yml'}
+
+  - !writeStatus: {status: "Tweaking..."}
+  - !task: {path: 'sw\tweak.yml'}
+
+  - !writeStatus: {status: "Applying some configurations..."}
+  - !task: {path: 'sw\config.yml'}

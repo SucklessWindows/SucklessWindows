@@ -2,27 +2,26 @@
 title: Tweak
 description: Tweak configuration
 privilege: TrustedInstaller
-actions: 
-  - !writeStatus: {status: "Tweaking"}
-features:
+actions:
+
     # ===================
     # === Performance ===
     # ===================
-  - sw\tweaks\performance\configure-kernel.yml
-  - sw\tweaks\performance\configure-win32priorityseparation.yml
-  - sw\tweaks\performance\disable-core-isolation.yml
-  - sw\tweaks\performance\disable-prefetcher-superfetch-and-readyboost.yml
-  - sw\tweaks\performance\disable-scheduled-tasks.yml
-  - sw\tweaks\performance\services.yml
+  - !task: {path: 'sw\tweaks\performance\configure-kernel.yml'}
+  - !task: {path: 'sw\tweaks\performance\configure-win32priorityseparation.yml'}
+  - !task: {path: 'sw\tweaks\performance\disable-core-isolation.yml'}
+  - !task: {path: 'sw\tweaks\performance\disable-prefetcher-superfetch-and-readyboost.yml'}
+  - !task: {path: 'sw\tweaks\performance\disable-scheduled-tasks.yml'}
+  - !task: {path: 'sw\tweaks\performance\services.yml'}
 
     # ============================
     # === Privacy and Security ===
     # ============================
-  - sw\tweaks\privacy-security\configure-content-delivery.yml
-  - sw\tweaks\privacy-security\configure-privacy.yml
-  - sw\tweaks\privacy-security\configure-security.yml
-  - sw\tweaks\privacy-security\disable-uac.yml
-  - sw\tweaks\privacy-security\security-maintenance.yml
+  - !task: {path: 'sw\tweaks\privacy-security\configure-content-delivery.yml'}
+  - !task: {path: 'sw\tweaks\privacy-security\configure-privacy.yml'}
+  - !task: {path: 'sw\tweaks\privacy-security\configure-security.yml'}
+  - !task: {path: 'sw\tweaks\privacy-security\disable-uac.yml'}
+  - !task: {path: 'sw\tweaks\privacy-security\security-maintenance.yml'}
 
     # =======================
     # === Quality of Life ===
@@ -30,61 +29,61 @@ features:
     
     # qol\appearance
 #  - sw\tweaks\qol\appearance\theme.yml
-  - sw\tweaks\qol\appearance\visual-effects.yml
-  - sw\tweaks\qol\appearance\configure-startmenu-and-taskbar.yml
+  - !task: {path: 'sw\tweaks\qol\appearance\visual-effects.yml'}
+  - !task: {path: 'sw\tweaks\qol\appearance\configure-startmenu-and-taskbar.yml'}
 
     # qol\appx
-  - sw\tweaks\qol\appx\configure-deprovisioned-apps.yml
-  - sw\tweaks\qol\appx\configure-microsoft-store.yml
-  - sw\tweaks\qol\appx\disable-installing-teams.yml
+  - !task: {path: 'sw\tweaks\qol\appx\configure-deprovisioned-apps.yml'}
+  - !task: {path: 'sw\tweaks\qol\appx\configure-microsoft-store.yml'}
+  - !task: {path: 'sw\tweaks\qol\appx\disable-installing-teams.yml'}
 
     # qol\ease-of-access
-  - sw\tweaks\qol\ease-of-access\disable-ease-of-access-features.yml
+  - !task: {path: 'sw\tweaks\qol\ease-of-access\disable-ease-of-access-features.yml'}
 
     # qol\explorer
-  - sw\tweaks\qol\explorer\add-hashes-checking-submenu-in-context-menu.yml
-  - sw\tweaks\qol\explorer\add-take-ownership-in-context-menu.yml
-  - sw\tweaks\qol\explorer\configure-explorer-settings.yml
-  - sw\tweaks\qol\explorer\old-rightclick-menu.yml
+  - !task: {path: 'sw\tweaks\qol\explorer\add-hashes-checking-submenu-in-context-menu.yml'}
+  - !task: {path: 'sw\tweaks\qol\explorer\add-take-ownership-in-context-menu.yml'}
+  - !task: {path: 'sw\tweaks\qol\explorer\configure-explorer-settings.yml'}
+  - !task: {path: 'sw\tweaks\qol\explorer\old-rightclick-menu.yml'}
 
     # qol\hardware
-  - sw\tweaks\qol\hardware\mouse-tweaks.yml
+  - !task: {path: 'sw\tweaks\qol\hardware\mouse-tweaks.yml'}
 
     # qol\security
-  - sw\tweaks\qol\security\disable-uac-secure-desktop.yml
+  - !task: {path: 'sw\tweaks\qol\security\disable-uac-secure-desktop.yml'}
 
     # qol\shell
-  - sw\tweaks\qol\shell\configure-search-and-cortana.yml
-  - sw\tweaks\qol\shell\disable-aero-shake.yml
-  - sw\tweaks\qol\shell\disable-menu-delay.yml
-  - sw\tweaks\qol\shell\no-recommendation-startmenu.yml
+  - !task: {path: 'sw\tweaks\qol\shell\configure-search-and-cortana.yml'}
+  - !task: {path: 'sw\tweaks\qol\shell\disable-aero-shake.yml'}
+  - !task: {path: 'sw\tweaks\qol\shell\disable-menu-delay.yml'}
+  - !task: {path: 'sw\tweaks\qol\shell\no-recommendation-startmenu.yml'}
 
     # qol\startup-shutdown
-  - sw\tweaks\qol\startup-shutdown\configure-logon.yml
-  - sw\tweaks\qol\startup-shutdown\configure-power-control.yml
-  - sw\tweaks\qol\startup-shutdown\decrease-shutdown-time.yml
-  - sw\tweaks\qol\startup-shutdown\disable-startup-delay.yml
-  - sw\tweaks\qol\startup-shutdown\force-close-apps.yml
+  - !task: {path: 'sw\tweaks\qol\startup-shutdown\configure-logon.yml'}
+  - !task: {path: 'sw\tweaks\qol\startup-shutdown\configure-power-control.yml'}
+  - !task: {path: 'sw\tweaks\qol\startup-shutdown\decrease-shutdown-time.yml'}
+  - !task: {path: 'sw\tweaks\qol\startup-shutdown\disable-startup-delay.yml'}
+  - !task: {path: 'sw\tweaks\qol\startup-shutdown\force-close-apps.yml'}
 
     # qol\system
-  - sw\tweaks\qol\system\configure-crash-control.yml
-  - sw\tweaks\qol\system\configure-multimedia.yml
-  - sw\tweaks\qol\system\configure-windows-settings.yml
-  - sw\tweaks\qol\system\configure-windows-update.yml
-  - sw\tweaks\qol\system\disable-disk-checking.yml
-  - sw\tweaks\qol\system\enable-audio-communications-do-nothing.yml
-  - sw\tweaks\qol\system\make-msi-installer-work-in-safe-mode.yml
-  - sw\tweaks\qol\system\restore-windows-photo-viewer-all-users.yml
+  - !task: {path: 'sw\tweaks\qol\system\configure-crash-control.yml'}
+  - !task: {path: 'sw\tweaks\qol\system\configure-multimedia.yml'}
+  - !task: {path: 'sw\tweaks\qol\system\configure-windows-settings.yml'}
+  - !task: {path: 'sw\tweaks\qol\system\configure-windows-update.yml'}
+  - !task: {path: 'sw\tweaks\qol\system\disable-disk-checking.yml'}
+  - !task: {path: 'sw\tweaks\qol\system\enable-audio-communications-do-nothing.yml'}
+  - !task: {path: 'sw\tweaks\qol\system\make-msi-installer-work-in-safe-mode.yml'}
+  - !task: {path: 'sw\tweaks\qol\system\restore-windows-photo-viewer-all-users.yml'}
 
     # =============
     # === Other ===
     # =============
-  - sw\tweaks\other\bypass-requirements.yml
-  - sw\tweaks\other\config-oem-info.yml
-  - sw\tweaks\other\configure-ifeo.yml
-  - sw\tweaks\other\configure-internet-explorer.yml
-  - sw\tweaks\other\configure-oobe.yml
-  - sw\tweaks\other\disable-automatic-maintenance.yml
-  - sw\tweaks\other\disable-logging.yml
-  - sw\tweaks\other\disable-system-restore-pre-defined-config.yml
-  - sw\tweaks\other\fixes.yml
+  - !task: {path: 'sw\tweaks\other\bypass-requirements.yml'}
+  - !task: {path: 'sw\tweaks\other\config-oem-info.yml'}
+  - !task: {path: 'sw\tweaks\other\configure-ifeo.yml'}
+  - !task: {path: 'sw\tweaks\other\configure-internet-explorer.yml'}
+  - !task: {path: 'sw\tweaks\other\configure-oobe.yml'}
+  - !task: {path: 'sw\tweaks\other\disable-automatic-maintenance.yml'}
+  - !task: {path: 'sw\tweaks\other\disable-logging.yml'}
+  - !task: {path: 'sw\tweaks\other\disable-system-restore-pre-defined-config.yml'}
+  - !task: {path: 'sw\tweaks\other\fixes.yml'}
