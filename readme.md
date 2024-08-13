@@ -1,7 +1,7 @@
 > [!CAUTION]
 > SucklessWindows (4.2024.8) broke due to lastest AME Wizard Beta build. Summer holiday in Vietnam is about to end, we have to concentrate on preparing for new school year, I'm afraid that the new update can't be released in August. So if you are an advanced user, please follow [this guild](https://github.com/SucklessWindows/SucklessWindows?tab=readme-ov-file#%EF%B8%8F-build) and help us testing new changes. Any bug occurs? Report it in [Issues](https://github.com/SucklessWindows/SucklessWindows/issues) or [our Discord server](https://discord.gg/fxeSRbVfkK) 🤗💗!
 
-![banner](https://github.com/TheOnlyChuon/SW-Fork/blob/main/.github/Uni-SucklessWindows.png?raw=true "Hey! I know that it's look like 'Suckloss Windows', but the 'e' is literally Edge logo, so we can call it Microsoft's fault XD")
+![banner](https://github.com/SucklessWindows/SucklessWindows/blob/main/.github/Uni-SucklessWindows.png?raw=true "Hey! I know that it's look like 'Suckloss Windows', but the 'e' is literally Edge logo, so we can call it Microsoft's fault XD")
 An open-source and lightweight modification method to Windows, designed to optimize performance, privacy and usability.
 > Friendly note: SucklessWindows is not related to [suckless.org](https://suckless.org)
 
