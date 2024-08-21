@@ -62,9 +62,10 @@ function Invoke-SWDiskCleanup {
 $excludedDrive = "C"
 $drives = Get-PSDrive -PSProvider 'FileSystem' | Where-Object { $_.Name -ne $excludedDrive }
 foreach ($drive in $drives) {
-    if (!(Test-Path -Path $(Join-Path -Path $drive.Root -ChildPath 'Windows') -PathType Container)) {
-        Invoke-SWDiskCleanup
-    }
+	if (!(Test-Path -Path $(Join-Path -Path $drive -ChildPath 'Windows') -PathType Container)) {
+		Write-Output "No other Windows drives found, running Disk Cleanup."
+		Invoke-SWDiskCleanup
+	}
 }
 
 Write-Host "Cleaning up Event Logs"
